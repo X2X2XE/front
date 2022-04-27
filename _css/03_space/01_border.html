@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>경계선</title>
+    <style>
+        /*h1, h3, ol, div, h4, p , ul, li{
+             border: 1px solid red; 
+            border-width: 1px;
+            border-style: solid;
+            border-color: red;
+            
+        } 
+        */
+        h1 {
+            /* 경계선은 border의 기본 3개의 속성을 우선 적용한 후 스타일링을 한다 */
+            border : 3px solid red;
+            border-radius: 5px;
+            
+        }
+        h3 {
+            border: 3px dashed green;
+        }
+        ol{
+            list-style : none;
+        }
+        ol li{
+            border-width: 10px;
+            border-color: #555;
+            border-left-style : solid;
+            margin-bottom: 10px;
+            padding-left: 5px;
+        }
+        .list{
+            border-width: 1px 5px 15px 20px;
+            border-style: solid dashed dotted double;
+            border-color: red green blue yellow;
+        }
+        h4{
+            border : 3px solid red;
+            border-radius: 1px 5px 10px 20px;
+        }
+        ol {
+            border-width: 1px 20px;
+            border-style: solid double;
+            border-color: red  yellow;
+            border-radius: 1px  20px;
+        }
+        p {
+            height: 300px;
+            border-width: 3px 6px 9px;
+            border-style: dotted solid dashed;
+            border-color: red  yellow green;
+            border-radius: 1px  20px 30px;
+        }
+        .bg{
+            width: 200px;
+            height: 300px;
+        }
+        .bg-bts{
+            width: 200px;
+            height: 150px;
+            border-radius: 10px 10px 0 0;
+            background-image: url("../../_html/images/bts.jpg");
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-size: 200px;
+            margin-bottom: 0;
+            
+        }
+        .card {
+            width: 200px;
+            height: 50px;
+            background-color: #555;
+            color: white;
+            margin-top: 0;
+        }
+        .card-title {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <a href="index.html">상위 폴더로 이동</a>
+    <h1>경계선은 html element들간 영역을 구분하는 기준이 됨</h1>
+    <h3>경계선은 box model을 기준으로 거의 모든 캐그에 존재함</h3>
+    <ol>
+        <li>경계선 두께 : border-width</li>
+        <li>경계선 색상 : border-color</li>
+        <li>경계선 모양 : border-style</li>
+        <li>경계선 모서리 곡률 : border-radius</li>
+    </ol>
+    <div class="container">
+        <h4 class="title">Title</h4>
+        <p class="content">Content</p>
+        <ul class="list">
+            <li>list1</li>
+            <li>list2</li>
+            <li>list3</li>
+        </ul>
+        <div class="bg">
+            <div class="bg-bts">
+
+            </div>
+            <div class="card">
+                <h3 class="card-title">MY BTS</h3>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
