@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display : table</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .title_item {
+            display: block;
+            font-size: 1em;
+        }
+        .title_item, .desc_item{
+            margin-top: 10px;
+        }
+        .desc_item {
+            font-size: 0.75em;
+        }
+        .boxwrap {
+            display: table;
+            width: 100%;
+            background-color: steelblue;
+        }
+        .boxwrap .box {
+            border : 1px solid white;
+            display: table-cell;
+            vertical-align: middle;
+            text-align: center;
+            padding: 10px;
+        }
+        .thumb img {
+            width: 30%;
+            height: 30%;
+        }
+    </style>
+</head>
+<body>
+    <a href="index.html">상위 폴더로 이동</a>
+    <h1>
+        display:flex와 비슷한 layout에 적극적으로 활용되고 있음
+    </h1>
+    <div class="boxwrap">
+        <div class="box">
+            <span class="thumb">
+                <img src="images/spade.png" alt="">
+            </span>
+            <strong class="title_item">제목 1</strong>
+            <p class="desc_item">설명부분 ㅂㄼㄼㄼㄼㄼㄹ<br>
+            ㅁㄴㄻㄴㄹㄴㄹㅇㅎㄶ</p>
+        </div>
+        <div class="box">
+            <span class="thumb">
+                <img src="images/club.png" alt="">
+            </span>
+            <strong class="title_item">제목 2</strong>
+            <p class="desc_item">설명부분 ㅂㄼㄼㄼㄼㄼㄹ<br>
+            ㅁㄴㄻㄴㄹㄴㄹㅇㅎㄶ</p>
+        </div>
+        <div class="box">
+            <span class="thumb">
+                <img src="images/dia.png" alt="">
+            </span>
+            <strong class="title_item">제목 3</strong>
+            <p class="desc_item">설명부분 ㅂㄼㄼㄼㄼㄼㄹ<br>
+            ㅁㄴㄻㄴㄹㄴㄹㅇㅎㄶ</p>
+        </div>
+        <div class="box">
+            <span class="thumb">
+                <img src="images/heart.png" alt="">
+            </span>
+            <strong class="title_item">제목 4</strong>
+            <p class="desc_item">설명부분 ㅂㄼㄼㄼㄼㄼㄹ<br>
+            ㅁㄴㄻㄴㄹㄴㄹㅇㅎㄶ</p>
+        </div>
+    </div>
+
+</body>
+</html>
