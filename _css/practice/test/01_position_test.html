@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            display :block;
+            text-align: center;
+        }
+        .d1{
+            border: 5px solid black;
+            width: 80%;
+            height: 15%;
+            
+            font-size: 50px;
+            text-align: center;
+            margin: auto;
+            margin-bottom: 5px;
+            margin-top: 5px;
+        }
+        .d2{
+            width: 80%;
+            height: 450px;
+            border: 5px solid black;
+            margin: auto;
+            position : relative;
+            
+        }
+        .d2_1{
+            position :absolute;
+            width: 230px;
+            height: 200px;
+            left : 20%;
+            top : 10%;
+            background-color: red;
+            z-index: 1;
+        }
+        .d2_2{
+            position: absolute;
+            width: 230px;
+            height: 200px;
+            left: 30%;
+            top: 30%;
+            background-color: green;
+            
+            
+
+        }
+        .d2_3{
+            position: absolute;
+            width: 230px;
+            height: 200px;
+            left: 40%;
+            top: 50%;
+            background-color: blue;
+            z-index: -1;
+            
+        }
+
+    </style>
+</head>
+<body>
+    <a href="../index.html">상위 폴더로 이동</a>
+    <div class="d1">
+        텍스트
+    </div>
+    <div class="d2">
+        <div class="d2_1"></div>
+        <div class="d2_2"></div>
+        <div class="d2_3"></div>
+    </div>
+    <div class="d1">
+        텍스트
+    </div>
+</body>
+</html>

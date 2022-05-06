@@ -1,0 +1,102 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+ul {
+    list-style-type: none;
+    display: inline-block;
+    
+
+}
+.nav1, .nav2 {
+    font-size: 1em;
+    padding: 10px;
+    float: left;
+}
+.nav3, .nav4 {
+    font-size: 1em;
+    padding: 10px;
+    
+}
+.divtitle {
+    top  : 30%;
+}
+.divtitle > h3 {
+    padding-bottom: 18px;
+}
+.divtitle > p {
+    padding-bottom: 48px;
+}
+.main_img > img {
+    height: 500px;
+}
+.btn {
+
+    background-color: #5900E7;
+    border: 0;
+    color: white;
+    width: 150px;
+    height: 50px;
+
+}
+
+.middiv {
+    position: relative;
+    display: inline-block;
+    margin-top: 50px;
+    width: 80%;
+    left: 10%;
+    margin-bottom: 16px;
+}
+.close {
+    position: absolute;
+    right: 10px;
+    
+    
+}
+.botdiv{
+    width: 82%;
+    left: 10%;
+    height: 800px;
+    color: #4a4a4a;
+    position: relative;
+    display: inline-block;
+    
+    
+}
+.botimg {
+    display: inline-block;
+    width: 330px;
+    height: 280px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    margin-right: 15px;
+    margin-bottom: 20px;
+}
+
+.botimg > img:first-child {
+
+    width: 100%;
+    height: 200px;
+    left: 10%;
+}
+
+.p1 {
+    font-size: 18px;
+    padding: 10px;
+}
+.p2 {
+    padding-left: 10px;
+    font-size: 13px;
+}
+.p2 > img{
+    
+    width: 20px;
+    height: 20px;
+}
+p{
+    margin: 0;
+}
+@media screen and (max-width : 768) {
+
+}

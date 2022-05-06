@@ -1,0 +1,290 @@
+body{
+    background-color:azure;
+    /* background-color: #000; */
+}
+a {
+    text-decoration-line: none;
+    
+    
+}
+.head {
+    
+    
+    
+    margin: auto;
+    height: 800px;
+    background-size: cover;
+    background-image: url("img/coding.jpg");
+    background-repeat: no-repeat;
+}
+.head_cover {
+    background-color: rgba(34, 33, 33, 0.856);
+    width: 100%;
+    height: 800px;
+    text-align: center;
+    
+}
+.head_p {
+    font-family: 'Gugi', cursive;
+
+    font-size: 95px;
+    
+}
+.head_cover > span{
+    display: block;
+    padding-top : 250px;
+    font-family: 'Gugi', cursive;
+    color: white;
+    font-size: 48px;
+}
+.profile_btn {
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%,-60%);
+    font-family: 'Gugi', cursive;
+}
+/* 프로필 */
+.offcanvas-body > p > img{
+    width: 500px;
+    height: 500px;
+}
+
+/* 자기소개 */
+.about{
+    text-align: center;
+    height: 650px;
+    border-bottom: 2px solid black;
+}
+#about_1{
+    width: 950px;
+    margin-left: 90px;
+   
+}
+#about_2{
+    margin-bottom: 100px;
+    margin-top: 50px;
+    font-size: 50px;
+}
+#about_1 > tbody > tr> td > b {
+    font-size: 25px ;
+}
+.about_text {
+    font-size: 12px;;
+}
+.about_td{
+    text-align: left;
+    padding-left: 50px;
+    
+}
+.td1 {
+    padding-left: 30px;
+}
+.about_p1{
+    
+    font-family: 'Bebas Neue', cursive;
+    
+    display: inline-block;
+    font-size: 35px;
+    padding-top :30px;
+}
+.about_p2 {
+    display: inline-block;
+    margin-left: 30px;
+}
+.about_p1:after {
+    
+    content: "";
+    display: block;
+    width: 120px;
+    border-bottom: 1px solid #000;
+    margin: 15px 40px;
+}
+
+.mid_tag{
+    position: absolute;
+    left: 20%;
+    top : 700px;
+}
+.min_tag > a:hover {
+    background-color: white;
+}
+#demo2 {
+    
+    width: 60%;
+    
+    margin: auto;
+}
+
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 1,
+  'wght' 700,
+  'GRAD' 200,
+  'opsz' 40;
+  font-size: 50px;
+  
+}
+/* 스킬 */
+.skill{
+    
+    height: 650px;
+    text-align: center;
+    
+}
+.skill_back{
+    margin-top: 25px;
+    width: 700px;
+    height: 600px;
+    background-color: rgba(0, 255, 255, 0.18);
+    display: inline-block;
+    border-radius: 40px 200px;
+    
+    
+}
+.skill_back > p {
+    
+    right : 50%;
+    font-size:  40px;
+    font-family: 'Koulen', cursive;
+    
+}
+.skill_back > img {
+    margin-top: 100px;
+    margin-right: 30px;
+    width : 150px;
+    height: 150px;
+}
+.bot_line {
+
+    display: inline-block;
+    width: 70%;
+    height: 55px;
+    border-bottom: 2px solid black;
+}
+/* 프로젝트이미지라인 */
+.pro{
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+.pro > p {
+    right : 50%;
+    font-size:  70px;
+    font-family: 'Koulen', cursive;
+    margin : 100px;
+    margin-bottom: 50px;
+}
+.pro_img{
+    
+    display: inline-block;
+    
+    
+}
+.pro_img1{
+    width: 400px; 
+    height: 400px;
+    padding: 30px;
+    overflow: hidden;
+    
+}
+.pro_img2 {
+    width: 400px; 
+    height: 600px; 
+    padding-bottom: 30px;
+    
+    
+}
+.pro_img3 {
+    position: relative;
+    width: 400px;
+    height: 400px;
+    padding: 30px;
+    top : -120px;
+    overflow: hidden;
+    
+}
+.pro_img4{ 
+    width: 400px; 
+    height: 400px; 
+    padding-bottom: 30px;
+    overflow: hidden;
+    
+}
+
+.pro_img5{
+    position: relative;
+    width: 400px;
+    height: 400px;
+    padding: 30px;
+    top : -140px;
+    overflow: hidden;
+    
+}
+
+.pro_img6{ 
+    width: 400px; 
+    height: 400px; 
+    padding-bottom: 30px;
+    overflow: hidden;
+    
+}
+.pro_img > a > img:hover{
+    
+    transform : scale(1.1);
+    
+}
+/* 깃허브 */
+.git_line{
+    
+    height: 300px;
+    background-color: black;
+    text-align: center;
+    
+}
+.git_line > img {
+    width: 130px;
+    margin-top: 50px;
+    margin-right: 500px;
+}
+
+.git_line > p {
+    font-family: 'Koulen', cursive;
+    margin-top: -75px;
+    margin-left: 90px;
+    font-size: 50px;
+    color: aliceblue;
+}
+.git_line > p > a:link{
+    text-decoration: none;
+    color : aliceblue;
+}
+.git_line > p > a:active{
+    text-decoration: none;
+    color : aliceblue;
+}
+.g.git_line > p > a:hover{
+    text-decoration: none;
+    color : aliceblue;
+}
+.git_line > p > a:visited{
+    text-decoration: none;
+    color : aliceblue;
+}
+/* 리모콘 */
+.sel {
+    background-color: #000;
+    position: fixed;
+    right : 50%;
+    top : 180px;
+    margin-right: -850px;
+    text-align: center;
+    width : 120px;
+    font-family: 'Koulen', cursive;
+
+}
+.sel > div {
+    margin: auto;
+    height: 40px;
+    border: rgba(0, 255, 255, 0.699) solid 1px;
+}

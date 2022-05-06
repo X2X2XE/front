@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="resources/css/bootstrap.min.css">
+    <link rel="stylesheet" href="main.css">
+    <link href="https://fonts.googleapis.com/css2?family=Gugi&family=Inconsolata:wght@900&family=Jua&family=Mulish:wght@900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Gugi&family=Inconsolata:wght@900&family=Jua&family=Mulish:wght@900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.sandbox.google.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Koulen&display=swap" rel="stylesheet">
+    <script src="resources/js/bootstrap.bundle.min.js"></script>
+    
+</head>
+<body>
+   
+
+    <div class="head" id="home">
+        <div class="head_cover">
+            <span>Hellow World<span class="head_p text-info"> Han's</span> portfolio</span>
+        </div>
+        <div class="offcanvas offcanvas-start" id="demo">
+            <div class="offcanvas-header">
+              <h1 class="offcanvas-title">Profile</h1>
+              <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"></button>
+            </div>
+            <div class="offcanvas-body">
+              <p><img src="" alt="개인사진"></p>
+              <p>프로필 쓸 자리</p>
+              
+            </div>
+          </div>
+          <button class="btn btn-outline-info profile_btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#demo">
+            Profile Open
+          </button>
+        <div class="container mt-5 mid_tag">
+            
+        </div>
+    </div>
+
+
+    <div class="container p-5 about" id="about" >
+      <a href="#about">&#128279;</a><p class="about_p1">About Me</p><br>
+      <table id="about_1">
+        <tr>
+          <td class="about_td"><span class="material-symbols-outlined" id="about_2">account_circle</span>
+            <b>이름</b> <span class="about_text">한경찬</span></td>
+          <td class="about_td"><span class="material-symbols-outlined" id="about_2">calendar_month</span>
+            <b>생년월일</b> <span class="about_text">95.10.21</span></td>
+          <td class="about_td td1"><span class="material-symbols-outlined" id="about_2">pin_drop</span>
+            <b>주소</b> <span class="about_text">인천광역시 부평구</span></td>
+        </tr>
+        <tr>
+          <td class="about_td"><span class="material-symbols-outlined" id="about_2">call</span>
+            <b>연락처</b> <span class="about_text">010-8333-5555</span></td>
+          <td class="about_td"><span class="material-symbols-outlined" id="about_2">mail</span>
+            <b>E-mail</b> <span class="about_text">gksrudcks123@gmail.com</span></td>
+          <td class="about_td td1"><span class="material-symbols-outlined" id="about_2">edit</span>
+            <b>학력</b> <span class="about_text">동양미래대학(컴퓨터정보공학)</span></td>
+        </tr>
+      </table>
+      
+      
+    </div>
+
+
+    <br>
+
+    <div name="skill" class="skill" id="skill"> 
+      <div class="skill_back">
+        <p>skill</p><br>
+        <img src="img/html.png" alt="">
+        <img src="img/CSS.png" alt="">
+        <img src="img/js.png" alt="">
+        
+      </div>
+      <div class="bot_line"></div>
+
+
+    </div>
+    <!-- <div id="demo2" class="carousel slide" data-bs-ride="carousel">
+
+
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#demo2" data-bs-slide-to="0" class="active"></button>
+          <button type="button" data-bs-target="#demo2" data-bs-slide-to="1"></button>
+          <button type="button" data-bs-target="#demo2" data-bs-slide-to="2"></button>
+        </div>
+        
+
+        <div class="carousel-inner" >
+          <div class="carousel-item active">
+            <a href="../01_travel/tramp_home.html">
+            <img src="img/tramp.PNG" alt="" class="d-block" style="width:100%">
+            <div class="carousel-caption text-info">
+              <h3>Tramp site</h3>
+              <p>Show Tramp</p>
+            </div>
+            </a>
+          </div>
+          <div class="carousel-item">
+            <a href="../03_nike_waiting/index.html">
+            <img src="img/wating.PNG" alt="" class="d-block" style="width:100%">
+            <div class="carousel-caption text-info">
+              <h3>Nike</h3>
+              <p>Wating site</p>
+            </div>
+            </a> 
+          </div>
+          <div class="carousel-item">
+            <a href="../test/04_coding.html">
+            <img src="img/coding.PNG" alt="" class="d-block" style="width:100%">
+            <div class="carousel-caption text-info">
+              <h3>Squird Game</h3>
+              <p>character introduce site</p>
+            </div>
+            </a>  
+          </div>
+        </div>
+    
+        <button class="carousel-control-prev btn-info" type="button" data-bs-target="#demo2" data-bs-slide="prev" style="height: 40%; margin-top: 25%; width: 100px;">
+          <span class="carousel-control-prev-icon " ></span>
+        </button>
+        <button class="carousel-control-next btn-info" type="button" data-bs-target="#demo2" data-bs-slide="next" style="height: 40%; margin-top: 25%; width : 100px">
+          <span class="carousel-control-next-icon"></span>
+        </button>
+      </div> -->
+      
+     
+
+      <div class="pro" id="project">
+        <p>PROJECT</p>
+        <div class="pro_img"><a href="page/boot/index.html" target="_blank"><img src="img/page1.JPG" alt="" class="pro_img1 img_mo"></a></div>
+        <div class="pro_img"><a href="page/tramp/tramp_home.html" target="_blank"><img src="img/tramp.PNG" alt="" class="pro_img2 img_mo" style="padding-top: 130px;"></a></div>
+        <div class="pro_img"><a href="page/roding.html" target="_blank"><img src="img/wating.PNG" alt="" class="pro_img1 img_mo"></a></div><br>
+        <div class="pro_img"><a href="page/sit.html" target="_blank"><img src="img/page2.JPG" alt="" class="pro_img3 img_mo"></a></div>
+        <div class="pro_img"><a href="page/login.html" target="_blank"><img src="img/page3.JPG" alt="" class="pro_img4 img_mo"></a></div>
+        <div class="pro_img"><a href="page/tag.html" target="_blank"><img src="img/page4.JPG" alt="" class="pro_img3 img_mo"></a></div><br>
+        <div class="pro_img"><a href="page/gun.html" target="_blank"><img src="img/page5.JPG" alt="" class="pro_img5 img_mo"></a></div>
+        <div class="pro_img"><a href="page/coding.html" target="_blank"><img src="img/coding.PNG" alt="" class="pro_img6 img_mo"></a></div>
+        <div class="pro_img"><a href="page/register_form.html" target="_blank"><img src="img/page6.JPG" alt="" class="pro_img5 img_mo"></a></div>
+        <div class="bot_line"></div>
+      </div>
+
+      <!-- tab 방식
+      <div class="container p-5">
+            <ul class="nav nav-tabs">
+                <li class="nav-item">
+                    <a class="nav-link active"  data-toggle="tab"  href="#test1">Test1</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link"  data-toggle="tab"  href="#test2">Test2</a>
+                </li>
+            </ul>
+            <div class="tab-content">
+                <div class="tab-pane fade show active" id="test1">
+                    <img src="img/tramp.PNG" alt="" style="width: 50%;">
+                </div>
+                <div class="tab-pane fade" id="test2">
+                    <img src="img/wating.PNG" alt="" style="width: 50%;">
+                </div>
+            </div>
+      </div> -->
+
+      <!-- <div class="container-fluid mt-3">
+        <h3>Carousel Example</h3>
+        <p>The following example shows how to create a basic carousel with indicators and controls.</p>
+      </div> -->
+
+      <div class="git_line" id="git">
+        <img src="img/git2.png" alt="">
+        <p><a href="https://github.com/X2X2XE">github.com/X2X2XE</a></p>
+      </div>
+      <div class="sel">
+        <div><a href="#home" class="text-info">Home</a></div>
+        <div><a href="#about" class="text-info">About Me</a></div>
+        <div><a href="#skill" class="text-info">Skill</a></div>
+        <div><a href="#project" class="text-info">ProJext</a></div>
+        <div><a href="#git" class="text-info">Git</a></div>
+      </div>
+</body>
+</html>

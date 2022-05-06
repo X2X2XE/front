@@ -1,0 +1,175 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.tag{
+    width: 100%;
+    height: 50px;
+    background-color: #444;
+    color: white;
+    position: relative;
+    
+}
+.tagna {
+    position:absolute;
+    padding: 15px 0px 0px 30px;
+    font-weight: bold;
+    
+}
+.main{
+    margin-top: -5px;
+    background-image: url("../images/gun1.PNG");
+    width: 100%;
+    height: 800px;
+    background-repeat: no-repeat;
+    
+}
+.content {
+    margin-top: 60px;
+    margin-left: 30px;
+    margin-bottom: 60px;
+}
+.content > h4 {
+    
+    margin-bottom: 10px;
+    font-size: 16px;
+    color: #4a4a4a;
+}
+.content > h3 {
+    margin-bottom: 30px;
+    font-size: 20px;
+    color: #1b1b1b;
+}
+.content > h5 {
+    margin-right: 30px;
+    font-size: 16px;
+    color: #7a7a7a;
+}
+.bt1 {
+    background-image: url("../images/gun2.PNG");
+    background-repeat: no-repeat;
+    
+    width: 100%;
+    height: 800px;
+    
+}
+.bt2 {
+    background-image: url("../images/gun3.PNG");
+    background-repeat: no-repeat;
+    
+    width: 100%;
+    height: 900px;
+    position: relative;
+    
+}
+.bt2 > div {
+    position: absolute;
+    top: 45%;
+    left: 55%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    width: 40%;
+    height: 30px;
+    border: 4px solid white;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+}
+.bt3 {
+    margin-top: -200px;
+    background-image: url("../images/gun4.PNG");
+    background-repeat: no-repeat;
+    
+    width: 100%;
+    height: 400px;
+    
+}
+@media screen and (min-width : 768px)   {
+    .main{
+        height: 1000px;
+        
+    }
+    .content {
+        margin-top: 60px;
+        margin-left: 65px;
+        margin-bottom: 60px;
+    }       
+    .bt1 {
+        float: left;
+        width: 50%;
+        height: 400px;
+    }
+    .bt2 {
+        width: 50%;
+        float: right;
+        height: 200px;
+    }
+    .bt2 > div {
+        position: absolute;
+        top: 45%;
+        left: 55%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        width: 40%;
+        height: 30px;
+        border: 4px solid white;
+        color: white;
+        font-weight: bold;
+        font-size: 16px;
+    }
+    .bt3 {
+        margin-top: 0;
+        width: 50%;
+        float: right;
+        height: 200px;
+    }
+}
+
+@media screen and (min-width : 960px)   {
+    .main{
+        width: 50%;
+        float: left;
+        height: 800px;
+        margin-top: 0;
+        
+    }
+    
+    .content {
+        float: right;
+        width: 50%;
+        height: 400px;
+        margin-top: 0;
+        margin-left: 0;
+        margin-bottom: 0;
+    }
+    .content > h4 {
+        padding-left: 60px;
+        padding-top: 60px;
+    } 
+    .content > h3 {
+        padding-left: 60px;
+    }
+    .content > h5 {
+        padding-left: 60px;
+        padding-bottom: 60px;
+        padding-right: 65px;
+    }
+    .bt1 {
+        float: left;
+        width: 25%;
+        height: 400px;
+    }
+    .bt2 {
+        width: 25%;
+        float: right;
+        height: 200px;
+    }
+    
+    .bt3 {
+        margin-top: 0;
+        width: 25%;
+        float: right;
+        height: 200px;
+    }
+}
