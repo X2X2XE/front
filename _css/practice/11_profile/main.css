@@ -1,5 +1,5 @@
 body{
-    background-color:azure;
+    background-color:rgb(178, 240, 240);
     /* background-color: #000; */
 }
 a {
@@ -57,7 +57,7 @@ a {
     border-bottom: 2px solid black;
 }
 #about_1{
-    width: 950px;
+    width: 1200px;
     margin-left: 90px;
    
 }
@@ -67,10 +67,10 @@ a {
     font-size: 50px;
 }
 #about_1 > tbody > tr> td > b {
-    font-size: 25px ;
+    font-size: 20px ;
 }
 .about_text {
-    font-size: 12px;;
+    font-size: 15px;;
 }
 .about_td{
     text-align: left;
@@ -136,7 +136,8 @@ a {
     margin-top: 25px;
     width: 700px;
     height: 600px;
-    background-color: rgba(0, 255, 255, 0.18);
+    background-color: rgba(129, 255, 255, 0.699);
+    border: rgba(45, 41, 252, 0.164) solid 30px;
     display: inline-block;
     border-radius: 40px 200px;
     
@@ -273,11 +274,11 @@ a {
 }
 /* 리모콘 */
 .sel {
-    background-color: #000;
+    background-color :rgba(58, 58, 58, 0.753);
     position: fixed;
     right : 50%;
     top : 180px;
-    margin-right: -850px;
+    margin-right: -900px;
     text-align: center;
     width : 120px;
     font-family: 'Koulen', cursive;
@@ -286,5 +287,13 @@ a {
 .sel > div {
     margin: auto;
     height: 40px;
-    border: rgba(0, 255, 255, 0.699) solid 1px;
+    border: rgba(77, 243, 255, 0.699) solid 1px;
+}
+.sel > div:hover {
+    
+    color: white;
+    background-color: rgba(255, 0, 98, 0.897);
+}
+.sel > div > a:hover{
+    color : white;
 }
