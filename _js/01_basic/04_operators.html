@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>데이터를 원하는 형태로 변경 및 판단하기 위한 코드</h1>
+    <ul>
+        <li>
+            산술연산자 : 사칙연산, 나머지연산, 제곱, 루트...등등
+        </li>
+        <li>
+            대입연산자 : 자체 값을 연산 후 다시 대입, 재귀적 연산이라고도 함
+        </li>
+        <li>
+            비교 연산자 : 이상, 이하, 미만, 초과, 같음, 다음
+        </li>
+        <li>
+            논리 연산자 : and, or, not and, not or, not
+        </li>
+        <li>
+            증감연산자 : 미리 정해진 일정 크기를 증가 혹은 감소
+        </li>
+        <li>
+            비트연산자 : 비트 단위로 연산(웹 분야에서는 활용도가 낮음)
+        </li>
+        <li>
+            그외 연산자 : 특정 목적이나 형태를 갖는 연산자
+        </li>
+    </ul>
+    <script>
+        //산술연산자
+        let num1 = 1000;
+        let num2 = 5;
+        let resultAdd = num1 + num2 ;
+        console.log(`resultAdd : ${resultAdd}`);
+        let resultSub = num1 - num2;
+        console.log(`resultSub : ${resultSub}`);
+        let resultMulti =num1 * num2;
+        console.log(`resultMulti : ${resultMulti}`);
+        let resultDiv = num1 / num2;
+        console.log(`resultDiv : ${resultDiv}`);
+        let num3 = 5.0;
+        let resultDiv2 = num1 / num3;
+        console.log(`resultDiv2 : ${resultDiv2}, typeof : ${typeof resultDiv2}`);
+        console.log(`10 % 3 = ${10 % 3}`); //10을 3으로 나눈 나머지
+        console.log(`10 ** 3 = ${10 ** 3}`); //10의 3제곱
+        /* console.log(`64 // 4 = ${64 // 4}`); // 이런거는 파이썬에 있음 */
+
+        let num4=1000.5;
+        let resultDiv3 = num4 / num3;
+        console.log(`resultDiv3 = ${resultDiv3} typeof = ${typeof resultDiv3}`)
+
+        //대입 연산자
+        num1 = 100;
+        num2 = 5;
+
+        //num1 = num1 + num2;
+        //num1 += num2;
+        console.log(`${num1} += ${num2} = ${num1 += num2}`); // num1 = 105
+
+        // num1 = num1 - num2;
+        //num1 -= num2;
+        console.log(`${num1} -= ${num2} = ${num1 -= num2}`); //num1 = 100
+        // num1 = num1 * num2;
+        /* num1 *= num2; */
+        console.log(`${num1} *= ${num2} = ${num1 *= num2}`); // num1 = 500
+        // num1 = num1 / num2;
+        /* num1 /= num2; */
+        console.log(`${num1} /= ${num2} = ${num1 /= num2}`); // num1 =100
+        //num1 = num1 ** num2;
+        /* num1 **= num2; */
+        console.log(`${num1} **= ${num2} = ${num1 **= num2}`); // num1 = 100000000
+        // num1 = num1 % num2;
+
+        console.log(`SqareRoot num1 = ${Math.sqrt(num1)}`);
+
+        // num1 %= num2;
+        console.log(`${num1} %= ${num2} = ${num1 %= num2}`); //num1 = 0
+
+        // 증강연산자
+        num1 = 100;
+        console.log(num1++); //100
+        num1++; // 1을 더한다
+        console.log(num1); //102
+        num1--; // 1을 뺸다
+        console.log(num1); // 101
+        console.log(`증감연산자가 변수 뒤쪽에 붙어 있으면 증강연산은 다음 호출때 적용되어 출력`);
+
+        console.log(++num1); //102
+        console.log(num1) ; //102
+        console.log(--num1);//101
+
+        // 비교연산자 : 연산 결과는 무조건 boolean type : true of false
+
+        console.log(num1 > num2); //true
+        console.log(num2 > num1); //false
+        console.log(num1 >= num2); // true
+        console.log(num1 <= num2); // false
+
+        console.log(num1 == num2); //false
+        num1 = 10;
+        num2 = 10;
+        console.log(num1 == num2); //true
+        num2 = `10`;
+        console.log(num1 == num2); //true ; 값만 비교
+        console.log(num1 === num2); //false; 값과 타입 모두 비교
+
+        console.log(num1 != num2); //false; 값만 비교
+        console.log(num1 !== num2); //true; 값과 타입 모두 비교
+        
+        console.log(`=============================================`)
+        num1 = 'abcdeg';
+        num2 = 'abcdefg' ;
+        console.log(num1 > num2); //true
+        console.log(`a` > `A`); 
+
+        console.log(`============`);
+        //논리연산자 : 좌측과 우측의 boolean 상태를 판단하여 조건만족을 판단함
+        console.log(true && true); // and 연산자 : 좌측과 우측이 모ㅗ두 true -> true
+        console.log(true&&false);// 좌측과 우측 중 한쪽이 false 면 -> false
+        console.log(false&&true); // false
+        console.log(false&&false); //false
+        // 연산의 순서에 의한 효울성 증가 -> && 연산자는 좌측이 true이면 우측연산 진행
+        // 좌측 false이면 연산 중지 -> 다음 라인 코드 실행
+
+        console.log(true || true); // or 연산자 : 좌측과 우측 중 한개라도 true -> true
+        console.log(true || false); // true
+        console.log(false || true); // true
+        console.log(false || false); // false
+        // 연산의 순서에 의한 효율성 증가 -> || 연산자는 좌측이 false이면 우측연산 진행
+        // 좌측 true이면 연산 중지 -> 다음 라인 코드 실행
+
+        // ! 연산자 : not, 부정 연산자 : 현재의 값을 반대로 바꿔서 연산
+        console.log(!true);// false
+        console.log(!!true); // true
+        console.log(!(!true));// true
+
+        //변수의 선언 및 초기화 방법 2
+        let n1, n2, n3;
+        let l1= 100, l2=200, l3= 300; // 한 줄 선언 및 초기화
+        n1 = 10, n2= 20, n3= 30; // 한 줄 초기화
+
+        //연산의 실행 횟수 5번
+        console.log(!(n1==n2) && (n2 == n3) || (n1 == n3)); //true
+        //연산의 실행 횟수 2번
+        console.log(!(n1==n3) || (n2==n3) && !(n1 == n2)); //true
+
+        //상황연산자
+        console.log(n1 == n2 ? n1 : n2);
+        let result = typeof n1 == typeof n2 ? 'equal type' : 'different type';
+        console.log(`result : ${result}`);
+
+       /*  삼각형의 너비 높이 34 밑변 100
+        사격형  둘레  너비 45 높이 65\
+        설명 문과 값을 콘솔에 찍기 */
+        let a=34, b= 100, c= 45, d= 65;
+        console.log(`삼각형의 높이는 ${a}이고, 밑변의 길이는 ${b}이며 삼각형의 넓이는 ${(a*b)/2} 이다.`);
+        console.log(`사변형의 밑변은 ${c}이고, 높이는 ${d}이며, 둘레는 ${(c+d) * 2}이다. `)
+
+        console.log(`====================================================`);
+        const PI = 3.14;
+        let r= 7;
+        // 삼각형의 넓이 > 원의 넓이  비교한 값과
+        // 삼각형의 넓이 > 사각형의 넓이를 비교한 값을 &&연산과 ||연산 결과를 콘솔로 출력
+        let p1 = (a * b) /2 , p2 = PI * (r ** 2) ,p3 = c * d ;
+        console.log(`삼각형의 넓이가 원의 넓이 보다 큰가? ${(p1 > p2) && (p1 > p3)}`); // false
+        console.log(`삼각형의 넓이가 사각형의 넓이 보다 큰가? : ${(p1 > p3) || (p1 > p2)}`); //true
+        console.log(`===============================`);
+        //연봉이 3000만원이라고 가정 한 후
+        // 월 급여 50%를 첫달에 저축한 후 2% 씩 매달 저축률을 올리고자 한다
+        // 저축이자율은 년 3%라고 가정하면 1년 후 여러분이 받을 총수령액(원금 + 이자)은?
+        // 1년 저축은 월복리입니다.
+        a= 30000000 , b= (a/12)*0.5, c= 0.02, d= b * c;
+        let e = 0, f= 0;
+        e = b , f= e * 0.03 , a= e + f; // 1
+        e += d ,f= e * 0.03 , a= e + f ; //2
+        c +=0.02, e+=d, f= e * 0.03 , a= e + f ;//3 
+        c +=0.02, e+=d, f= e * 0.03 , a= e + f ;//4 
+        c +=0.02, e+=d, f= e * 0.03 , a= e + f ;//5 
+        c +=0.02, e+=d, f= e * 0.03 , a= e + f ;//6 
+        c +=0.02, e+=d, f= e * 0.03 , a= e + f ;//7 
+        c +=0.02, e+=d, f= e * 0.03 , a= e + f ;//8 
+        c +=0.02, e+=d, f= e * 0.03 , a= e + f ;//9 
+        c +=0.02, e+=d, f= e * 0.03 , a= e + f ;//10
+        c +=0.02, e+=d, f= e * 0.03 , a= e + f ;//11
+        c +=0.02, e+=d, f= e * 0.03 , a= e + f ;//12
+        
+        
+
+        
+        console.log(`원금 : ${e} , 이자 = ${f} , 총액 ${a}`);
+        
+        
+
+
+    </script>
+</body>
+</html>
