@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Date객체 관련 get, set</title>
+</head>
+<style>
+    img{
+        width: 400px;
+    }
+    li {
+        margin-bottom: 20px;
+    }
+</style>
+<body>
+    <h1>
+        데이터를  set 하는 메서드를 보통 setters, get 하는 메서드를 getters라고 부른다
+    </h1>
+    <ul>   
+        <li>
+            Date 객체에는 날짜와 시간관련 메서드들이 동일한 이름으로 구조화 되어 있음
+        </li>
+        <li>
+            get methods
+            <img src="images/date_getters.PNG" alt="">
+        </li>
+        <li>
+            set methods
+            <img src="images/date_setters.PNG" alt="">
+        </li>
+    </ul>
+
+    <h2>
+        자바스크립트의 Date() 객체를 사용하기 불편한 부분을 보완하기 위해 자바스크립트
+        라이브러리를 많이 활용하는 편
+    </h2>
+    <ul>
+        <li>
+            moment.js : 순수 자바스크립트를 기반으로 날짜 데이터를 다루는 코드 라이브러리
+        </li>
+        <li>
+            fullcalendar : 캘린터 UI까지 제공하는 프론트용 라이브러리 : 커스터마이징이 
+            어려운 편이여서 별도의 라이브러리 공부가 필요함
+        </li>
+    </ul>
+    <h2>
+        여러분의 생년월일로부터 오늘까지 몇 일이 지났는지 출력해보세요
+        (optional) : 여러분의 목표를 입력하고 기한을 정한 후 몇일 남았는지 출력해보세요.
+    </h2>
+    <input type="date" id="day"> <button type="button" id="btn">버튼</button>
+    <h5 id="print"></h5>
+    <script>
+        const today = new Date();
+        console.log(today.getUTCDay());
+
+        const birth = new Date();
+        birth.setFullYear(1995,10,21);
+        console.log(birth);
+        let birth2 = today.getTime() - birth.getTime();
+        
+        console.log(Math.abs(birth2 / (1000 * 3600 * 24)));
+        birth.setFullYear(2022,09,30);
+        birth2 = today.getTime() - birth.getTime();
+        console.log(`==============Q2==============`);
+        console.log(Math.abs(birth2 / (1000 * 3600 * 24)));
+    
+        document.getElementById(`btn`).addEventListener(`click`,function(){
+            const day = document.getElementById(`day`).value;
+            const dday = day.split(`-`);
+            
+            const ddday = new Date(`${day}`);
+            // ddday.setFullYear(dday[0],dday[1],dday[2]);
+            console.log(ddday.getTime());
+            let pr = ddday.getTime() - today.getTime();
+            let pr2 = Math.abs(pr / (1000 * 3600 * 24));
+            document.getElementById(`print`).innerText= `${pr2}일`;
+            
+        })
+    </script>
+</body>
+</html>
