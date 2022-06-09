@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class, constructor</title>
+</head>
+<body>
+    <h1>
+        클래스, 객체, 생성자
+    </h1>
+    <script>
+        class Car {
+            constructor(name, year){
+                this.name = name;
+                this.year = year;
+
+            }
+        }
+
+        let myCar1 = new Car(`포르쉐`, 2022);
+        let myCar2 = new Car(`그랜져`, 2021);
+
+        console.log(myCar1.name,myCar1.year);
+        console.log(myCar2.name,myCar2.year);
+    </script>
+</body>
+</html>

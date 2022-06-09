@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON</title>
+</head>
+<body>
+    <h1>
+        JSON : JavaScript Object Notation : 자바스크립트 객체 표기법
+    </h1>
+    <ul>
+        <li>
+            데이터의 요청 및 응답처리에 필요한 데이터의 표준 형식을 제공하는 타입
+        </li>
+        <li>
+            백엔드 언어의 종류에 관계없이 데이터 송수인을 단일 형식으로 통일함
+        </li>
+        <li>
+            데이터의 전송은 모두 string 타입으로 이루어지기 때문에 송수신 모듈에서
+            타입의 변환이 필요함 
+        </li>
+        <li>
+           서버로 데이터 보낼때 > json to string > JSON.stringify(jsObject)
+        </li>
+        <li>
+            서버로부터 데이터을 받을때 > string to json > JSON.parse(stringData)
+        </li>
+    </ul>
+    <script>
+        const stringData = '{"id": "0001","type": "donut","name": "Cake",'
+      	+ '"image":	{"url": "images/0001.jpg","width": 200,	"height": 200},'
+      	+ '"thumbnail":	{"url": "images/thumbnails/0001.jpg","width": 32,"height": 32}}';
+
+
+        let parsedData = JSON.parse(stringData);
+        //parsedData를 console이나 html 태그로 key : value 형식으로 출력해보기
+        //반복문을 사용하여 접근할 것
+        
+        /* let leng = Object.keys(parsedData);
+        let val = Object.values(parsedData);
+        console.log(val);
+        
+        for(let i=0; i < leng.length; i++){
+            
+            
+            console.log(`${leng[i]} : ${val[i]}`);
+        } */
+        
+        for (const key in parsedData) {
+            if(key == 'image' || key == `thumbnail` ) {
+                let nestedObject = parsedData[key];
+                for (const k in nestedObject) {
+                    console.log(k, `:`, nestedObject[k]);
+                }
+            }else {
+                console.log(key, `:` , parsedData[key])
+            }
+        }
+
+
+        const myInfoData = {
+            "name" : `Park`,
+            "age" : `44`,
+            "blood" : `o`,
+            "major" : `Financial`,
+            "addr" : `Seoul`
+        }; // `\"name\"`
+        let stringData2 = JSON.stringify(myInfoData);
+        let ky = '{';
+        let val = '}';
+        console.log(typeof stringData2);
+        console.log(stringData2);
+        /* console.log(`\"name\"`);
+        
+        let mydata = '{'
+        for (const key in myInfoData) {
+            mydata += `"${key}" : "${myInfoData[key]}" `;
+                
+        }
+        mydata += `}`;
+        console.log(mydata);
+        for(let i=0; i < mydata.length ; i++){
+            let key = mydata.indexOf(`"`, i);
+            mydata[i].concat("\ ");
+            console.log(key);
+        } */
+        for (const key in myInfoData) {
+            ky += `\"${key}\":\"${myInfoData[key]}\",`;
+            
+        }
+        ky = ky.substring(0, ky.length-1);
+        ky +=`}`;
+        console.log(ky);
+        
+    </script>
+</body>
+</html>
