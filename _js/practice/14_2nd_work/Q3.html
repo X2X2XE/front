@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2nd Work Quiz 3</title>
+  <style>
+    td{
+      border: 1px solid black;
+      padding: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1>
+    단순 사칙연산 계산기 만들기 (+, -, *, /)
+  </h1>
+  <ul>
+    <li>
+      계산기의 작동은 버튼으로만 조작가능하다
+    </li>
+    <li>
+      연산자는 한 번만 사용하는 것으로 한다
+    </li>
+    <li>
+      버튼 : ., 0~9, +, -, *, /, =, C(clear)
+    </li>
+    <li>
+      계산기의 출력은 수식 = 결과의 형태이어여야 한다 : 12 + 34 = 46
+    </li>
+  </ul>
+  <table>
+    <tr>
+      <td><button type="button" id="plus">+</button></td>
+      <td><button type="button" id="ma">-</button></td>
+      <td><button type="button" id="svg">*</button></td>
+      <td><button type="button" id="na">/</button></td>      
+    </tr>
+    <tr>
+      <td><button type="button" id="sev">7</button></td>
+      <td><button type="button" id="ei">8</button></td>
+      <td><button type="button" id="ni">9</button></td>
+      <td><button type="button" id="jum">.</button></td>      
+    </tr>
+    <tr>
+      <td><button type="button" id="fo">4</button></td>
+      <td><button type="button" id="fi">5</button></td>
+      <td><button type="button" id="six">6</button></td>
+      <td><button type="button" id="cle">c</button></td>      
+    </tr>
+    <tr>
+      <td><button type="button" id="on">1</button></td>
+      <td><button type="button" id="tw">2</button></td>
+      <td><button type="button" id="th">3</button></td>
+      <td><button type="button" id="eq">=</button></td>      
+    </tr>
+    <tr>
+      <td><button type="button" id="ze">0</button></td>      
+    </tr>
+  </table>
+
+  <h3 id="print"></h3>
+  <script>
+    document.getElementById(`plus`).addEventListener(`click` ,function(){
+      document.getElementById(`print`).innerText +=`+`
+    })
+    document.getElementById(`ma`).addEventListener(`click` ,function(){
+      document.getElementById(`print`).innerText +=`-`
+    })
+    document.getElementById(`svg`).addEventListener(`click` ,function(){
+      document.getElementById(`print`).innerText +=`*`
+    })
+    document.getElementById(`na`).addEventListener(`click` ,function(){
+      document.getElementById(`print`).innerText +=`/`
+    })
+    document.getElementById(`sev`).addEventListener(`click` ,function(){
+      document.getElementById(`print`).innerText +=`7`
+    })
+    document.getElementById(`ei`).addEventListener(`click` ,function(){
+      document.getElementById(`print`).innerText +=`8`
+    })
+    document.getElementById(`ni`).addEventListener(`click` ,function(){
+      document.getElementById(`print`).innerText +=`9`
+    })
+    document.getElementById(`jum`).addEventListener(`click` ,function(){
+      document.getElementById(`print`).innerText +=`.`
+    })
+    document.getElementById(`fo`).addEventListener(`click` ,function(){
+      document.getElementById(`print`).innerText +=`4`
+    })
+    document.getElementById(`fi`).addEventListener(`click` ,function(){
+      document.getElementById(`print`).innerText +=`5`
+    })
+    document.getElementById(`six`).addEventListener(`click` ,function(){
+      document.getElementById(`print`).innerText +=`6`
+    })
+    document.getElementById(`cle`).addEventListener(`click` ,function(){
+      document.getElementById(`print`).innerText =``
+    })
+    document.getElementById(`on`).addEventListener(`click` ,function(){
+      document.getElementById(`print`).innerText +=`1`
+    })
+    document.getElementById(`tw`).addEventListener(`click` ,function(){
+      document.getElementById(`print`).innerText +=`2`
+    })
+    document.getElementById(`th`).addEventListener(`click` ,function(){
+      document.getElementById(`print`).innerText +=`3`
+    })
+    document.getElementById(`ze`).addEventListener(`click` ,function(){
+      document.getElementById(`print`).innerText +=`0`
+    })
+    document.getElementById(`eq`).addEventListener(`click` ,function(){
+      const sick = document.getElementById(`print`).innerText;
+      let su = 0;
+      let sick_len = sick.length;
+      let first = ``;
+      let second = ``;
+      let count = 0;
+      let count2 =0;
+      for(let i=0; i < sick_len ; i++){
+        if(sick.charAt(i).includes(`+`)==true || sick.charAt(i).includes(`-`)==true ||
+        sick.charAt(i).includes(`*`)==true || sick.charAt(i).includes(`/`)==true){
+          count++;
+        }
+      }
+      
+      if(count > 1 || count ==0){
+        
+        document.getElementById(`print`).innerText=`식이 올바르지 않습니다.`;
+      } else {
+        console.log(count);
+      if(sick.includes(`+`)==true){
+        su = sick.indexOf(`+`);
+      } else if (sick.includes(`-`)==true){
+        su = sick.indexOf(`-`);
+      } else if (sick.includes(`*`)==true){
+        su = sick.indexOf(`*`);
+      } else if (sick.includes(`/`)==true){
+        su = sick.indexOf(`/`);
+      }
+      let su1 = su +1;
+      for(let i = 0; i < su ; i++){
+        
+        first +=sick.charAt(i);
+      }
+      for(let i = su; i <sick_len ;i++){
+        let j = su1;
+        second += sick.charAt(j);
+        su1++;
+      }
+
+      
+      if(sick.charAt(su)=='+'){
+        let gab = parseFloat(first)+parseFloat(second) ;
+        document.getElementById(`print`).innerText=`${first} + ${second} = ${gab}`;
+      } else if (sick.charAt(su)=='-'){
+        let gab = parseFloat(first)-parseFloat(second) ;
+        document.getElementById(`print`).innerText=`${first} - ${second} = ${gab}`;
+      } else if (sick.charAt(su)=='*'){
+        let gab = parseFloat(first)*parseFloat(second) ;
+        document.getElementById(`print`).innerText=`${first} * ${second} = ${gab}`;
+      } else if (sick.charAt(su)=='/'){
+        let gab = parseFloat(first)/parseFloat(second) ;
+        document.getElementById(`print`).innerText=`${first} / ${second} = ${gab}`;
+      }
+      }
+    }
+    )
+
+  </script>
+</body>
+</html>

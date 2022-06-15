@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>펠린드롬</title>
+</head>
+<body>
+    <h1>
+        펠린드롬 : 거꾸로 읽어도 같은 단어인지 판단하기
+    </h1>
+    <ul>
+        <li>
+            단어 입력을 받아 펠린드롬 여부를 출력하세요
+        </li>
+        <li>
+            테스트 단어 예시 : 토마토, 기러기, kayak 그외 일반 단어
+        </li>
+    </ul>
+    단어 입력 <input type="text" id="te"><br>
+    <button type="button" id="btn">확인</button>
+    <h3 id="print"></h3>
+    <script>
+        document.getElementById(`btn`).addEventListener(`click`,function() {
+            let text = document.getElementById('te').value;
+            let text_len = text.length;
+            /* console.log(text_len); */
+            let vi = Math.floor(text_len/2);
+            let count = 0;
+            for(let i=0;i <=vi; i++ ){
+                let j = text_len - i -1;
+                console.log(text.charAt(i),text.charAt(j));
+                if(text.charAt(i) == text.charAt(j)){
+                    count++;
+                    
+                } else {
+                    document.getElementById(`print`).innerText=`펠린드롬 단어가 아닙니다.`
+                }
+                if(count == vi){
+                    document.getElementById(`print`).innerText=`펠린드롬 단어가 맞습니다.`
+                }
+            }
+            
+        })
+    </script>
+</body>
+</html>

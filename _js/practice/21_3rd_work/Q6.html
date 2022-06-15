@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz 6</title>
+  <style>
+    td {
+     padding-right: 15px; 
+    }
+  </style>
+</head>
+<body>
+  <h1>
+    Q6. 데이터를 입력할 인원수를 입력받고, 각 개인의 HTML, CSS, JS 과목의 점수를 입력하면 각 과목 점수, 총점, 평균을 html의 리스트나 table 태그에 출력하기 (과제용)
+  </h1>
+  인원 수 입력 <input type="number", id="inone"><button type="button" id="inone_btn">인원입력</button><br>
+  이름 : <input type="text" id="name"><br>
+  HTML 점수 : <input type="number" id="html" max="100" min="0"><br>
+  CSS 점수 : <input type="number" id="css" max="100" min="0"><br>
+  JS 점수 : <input type="number" id="js" max="100" min="0"><br>
+  <button type="button" id="btn">출력</button><br>
+  <h2 id="inone_print"></h2>
+  <table id="print">
+    
+  </table>
+
+  <script>
+    let inone=0;
+    let human = new Map();
+    let na = [];
+    let val = [];
+    
+    document.getElementById(`inone_btn`).addEventListener(`click`, function(){
+      inone = parseInt(document.getElementById(`inone`).value);
+      document.getElementById(`inone_print`).innerText=`${inone}명을 입력해주세요`;
+      this.disabled = `disabled`;
+    })
+    document.getElementById(`btn`).addEventListener(`click`, function(){
+      let html = parseInt(document.getElementById(`html`).value);
+      let css = parseInt(document.getElementById(`css`).value);
+      let js = parseInt(document.getElementById(`js`).value);
+      let name = document.getElementById(`name`).value;
+      let ob = {};
+      ob.html = html;
+      ob.css = css;
+      ob.js = js;
+      console.log(ob);
+      human.set(name, ob);
+      let pr = ``;
+      
+      if(inone == human.size){
+        
+        human.forEach(function(v, k){
+          na.push(k);
+          val.push(v);
+        })
+       
+        for(let i =0; i <na.length ; i++){
+          let all = (val[i].html+val[i].css+val[i].js);
+          let avg = all/3;
+          pr+=`<tr><td>이름 : ${na[i]}</td> `;
+          pr+=`<td>HTML : ${val[i].html}</td>`;
+          pr+=`<td>CSS : ${val[i].css}</td>`;
+          pr+=`<td>JS : ${val[i].js}</td>`;
+          pr+=`<td>총점 : ${all}</td>`;
+          pr+=`<td>평균 : ${avg}</td></tr>`;
+        }
+        document.getElementById(`print`).innerHTML+=pr;
+      }
+    })
+
+  </script>
+</body>
+</html>

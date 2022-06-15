@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>종합소득세 계산해보기</title>
+</head>
+<body>
+    <h1>종합소득세 = 과세표준 * 소득세율</h1>
+    <ul>
+        과세표준 = 총소득액 - 총공제인정액
+        <li>
+            총 소득액 = 시간당 pay를 입력받기, 하루 근무시간, 입력받기,
+             1년 근로일수 입력받기(1년 52주)
+        </li>
+        <li>
+            총공제인정액(약식신고%) = 랜덤으로 30.0% ~ 40.0%를 산출한다
+        </li>
+        <li>
+            과세표준의 해당구간의 세율을 부과하여 세액을 출력하세요
+        </li>
+        <li>
+            <img src="img/tax_rate.PNG" alt="" width="500">
+        </li>
+    </ul>
+    <form action="">
+        <input type="number" id="pay" placeholder="시간당 받는 금액을 입력하세요">
+        <input type="number" id="hour" placeholder="하루 근무시간을 입력하세요">
+        <input type="number" id="week" placeholder="근로일수를 적어주세요">
+        <button type="button" id="start">세액를 산출합니다</button>
+    </form>
+    <h2 id="print"></h2>
+    <script>
+        let gojan = (Math.random()*0.1) + 0.3 ;
+        gojan = gojan.toFixed(3);
+        
+        
+        document.getElementById(`start`).addEventListener(`click`,function() {
+            let pay = parseInt(document.getElementById(`pay`).value);
+            /* console.log(pay, typeof pay); */
+            let hour = parseInt(document.getElementById(`hour`).value);
+            let week = parseInt(document.getElementById(`week`).value);
+            let all_pay = (pay * hour) * week ;
+            let gasa = Math.floor(all_pay - (all_pay * gojan));
+            let sodick = 0;
+            if (gasa > 1000000000){
+                sodick = Math.floor(gasa * 0.45) - 65400000; 
+            } else if (gasa > 500000000 && gasa <= 1000000000){
+                sodick = Math.floor(gasa *0.42) - 35400000;
+            } else if (gasa > 300000000 && gasa <= 500000000){
+                sodick = Math.floor(gasa * 0.40) - 25400000;
+            } else if (gasa > 150000000 && gasa <=300000000) {
+                sodick = Math.floor(gasa * 0.38) - 19400000;
+            } else if (gasa > 88000000 && gasa <= 1500000000) {
+                sodick = Math.floor(gasa * 0.35) - 14900000;
+            } else if (gasa > 46000000 && gasa <= 88000000) {
+                sodick = Math.floor(gasa * 0.24) - 5220000;
+            } else if (gasa > 12000000 && gasa <= 46000000) {
+                sodick = Math.floor(gasa * 0.15) - 1080000;
+            } else if (gasa <= 12000000) {
+                sodick = Math.floor(gasa * 0.06);
+            }
+            document.getElementById(`print`).innerText = `당신의 세액은 ${sodick}원 입니다.` 
+        })
+    </script>
+</body>
+</html>

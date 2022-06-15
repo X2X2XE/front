@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>구구단 퀴즈</title>
+</head>
+<body>
+    <h1>
+        구구단 영역 (2x2 =4 ~ 9x9=81)내에서 랜덤으로 한개를 문제로 내면
+        정답을 맞추는 로직
+    </h1>
+    <ul>
+        <li>
+            총 10회의 문제가 랜덤으로 출제되며
+        </li>
+        <li>
+            문제를 풀때 정답, 오답의 결과를 출력해야 하고
+        </li>
+        <li>
+            10문제중에 정답의 갯수를 기록하여 정답률을 출력한다
+        </li>
+    </ul>
+    <h3 id="quiz"></h3>
+    <input type="number" id="ans" placeholder="정답">
+    <button type="button" id="btn" onclick="target()">입력</button>
+    <h2 id="print"></h2>
+    <h2 id="print2"></h2>
+    <script>
+        
+        
+        let num = Math.floor((Math.random()*8) +2);
+        let dan = Math.floor((Math.random()*8) +2);
+        
+        let quiz_num = 0;
+        let win = 0;
+        let loss = 0;
+        let per = num * dan;
+        document.getElementById(`quiz`).innerText= `${num} X ${dan} = ?`;
+        let ans = 0;
+        document.getElementById(`btn`).addEventListener('click',function(){
+            ans = document.getElementById(`ans`).value;
+            if(ans == per){
+                win++;
+                quiz_num++;
+                document.getElementById(`print`).innerText=`정답입니다! 정답 ${per}, 당신의 답 ${ans}`;
+                num = Math.floor((Math.random()*8) +2);
+                dan = Math.floor((Math.random()*8) +2);
+                per = num * dan;
+                document.getElementById(`quiz`).innerText= `${num} X ${dan} = ?`;
+            } else {
+                loss++;
+                quiz_num++;
+                document.getElementById(`print`).innerText=`오답입니다! 정답 ${per}, 당신의 답 ${ans}`;
+                num = Math.floor((Math.random()*8) +2);
+                dan = Math.floor((Math.random()*8) +2);
+                per = num * dan;
+                document.getElementById(`quiz`).innerText= `${num} X ${dan} = ?`;
+            }
+
+            console.log(win, loss, quiz_num, per);
+            
+        })
+        function target() {
+        if(quiz_num >= 10) {
+                document.getElementById(`print2`).innerText=`당신의 정답률은 ${win*10}% 입니다.`;
+                
+                const target = document.getElementById(`btn`);
+                target.disabled = true;
+            }
+        }
+    
+            
+            /* do{
+                console.log(num, dan, num*dan , quiz_num, win);
+                if (ans == (num * dan)){
+                    win++;
+                    quiz_num++;
+                    num = Math.floor((Math.random()*8) +2);
+                    dan = Math.floor((Math.random()*8) +2);
+                    document.getElementById(`print`).innerText=`정답입니다! 정답 ${per}, 당신의 답 ${ans}`;
+                    document.getElementById(`quiz`).innerText= `${num} X ${dan} = ?`;
+                    
+                    
+                } else {
+                    loss++;
+                    quiz_num++;
+                    num = Math.floor((Math.random()*8) +2);
+                    dan = Math.floor((Math.random()*8) +2);
+                    document.getElementById(`print`).innerText=`오답입니다! 정답 ${per}, 당신의 답 ${ans}`;
+                    document.getElementById(`quiz`).innerText= `${num} X ${dan} = ?`;
+                    
+                }
+
+            }while(quiz_num < 11);
+            if(quiz_num == 10) {
+                document.getElementById(`print2`).innerText=`당신의 정답률은 ${win}0% 입니다.`;
+            } */
+        
+
+    </script>
+</body>
+</html>

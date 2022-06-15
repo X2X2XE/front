@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>섭씨를 화씨로</title>
+</head>
+<body>
+    <h1>
+        한국에 있는 친구가 미국에 있는 미쿡 친구에게 온도를 알려고 싶다고 가정
+    </h1>
+    <ul>
+        <li>
+            섭씨 온도를 입력하면 화씨 온도를 출력해주는 시스템
+        </li>
+        <li>
+            입력한 섭씨 온도는 배열에 계속해서 저장이 되고
+        </li>
+        <li>
+            저장된 섭씨 온도는 화씨온도로 변환되서 화씨 온도의 배열로 저장
+        </li>
+        <li>
+            출력버튼을 클릭하면 섭씨온도 => 화씨온도의 리스트 형태로 출력
+        </li>
+        <li>
+            공식 : (0°C × 9/5) + 32 = 32°F
+        </li>
+    </ul>
+    섭씨 온도를 입력하시오. <input type="number" id="cel">
+    <button type="button" id="save">저장</button>
+    <button type="button" id="go">출력</button>
+    <h2 id="print"></h2>
+    <script>
+        const data1 = [];
+        const data2 = [];
+        let count = 0;
+        document.getElementById(`save`).addEventListener(`click`,function () {
+            let cel = parseFloat(document.getElementById(`cel`).value);
+            data1[count]= cel;
+            let trans = (cel * (9/5)) + 32;
+            data2[count]=trans;
+            document.getElementById(`print`).innerText=`${count+1}번 저장 되었습니다.`;
+            count++;
+        })
+        document.getElementById(`go`).addEventListener(`click`,function(){
+            let pr = `<ul>`;
+                
+            for(let i=0; i < data1.length ; i++){
+                pr +=`<li>${data1[i]}°C => ${data2[i]}°F</li>`;
+            }
+            pr += '</ul>';
+            
+            document.getElementById(`print`).innerHTML = `${pr}`;
+        })
+    </script>
+</body>
+</html>

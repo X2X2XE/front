@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>가위 바위 보 게임</title>
+</head>
+<body>
+    <h1>
+        컴퓨터가 가위바위보를 정하면 나도 가위 바위 보 버튼중 한개를 선택하여 게임을 한다
+    </h1>
+    <h3>총 5번의 게임에서 각 게임마다 승 무 패를 출력한다</h3>
+    <h2>가위 바위 보 중 선택하세요</h2>
+    <input type="radio" name="select" value="가위">가위
+    <input type="radio" name="select" value="바위">바위
+    <input type="radio" name="select" value="보">보
+    <button type="button" id="btn">선택</button>
+    <h3 id="print"></h3>
+
+    <script>
+        let win = 0;
+        let loss = 0;
+        let drow = 0;
+        let all = 0;
+        const sell = [`가위`,`바위`,`보`]
+        function count() {
+            let comsell = sell[Math.floor(Math.random()*sell.length)];
+            let user = document.querySelector(`input[name=select]:checked`).value;
+            console.log(user, typeof user, comsell);
+                if (all == 5  ) {
+                    document.getElementById(`print`).innerText =`5판에 게임 끝낫습니다 기록을 초기화 합니다. 승 : ${win}, 패 : ${loss}, 비김 : ${drow}, 총게임 : ${all}`;
+                    win *= 0;
+                    loss *= 0;
+                    drow *= 0;
+                    all *= 0;
+                } else if(all <= 5 ){
+                    if(comsell == user ){
+                        drow += 1;
+                        all += 1;
+                        document.getElementById(`print`).innerText =`Draw 승 : ${win}, 패 : ${loss}, 비김 : ${drow}` ;
+                        
+                    } else if ((comsell == '가위' && user == `바위`) || (comsell == '바위' && user == `보`) || (comsell == '보' && user == `가위`)){
+                        win += 1;
+                        all += 1;
+                        document.getElementById(`print`).innerText =`Win 승 : ${win}, 패 ; ${loss}, 비김 ; ${drow}` ;
+                        
+                    } else if ((comsell == '가위' && user == `보`) || (comsell == '바위' && user == `가위`) || (comsell == '보' && user == `바위`)){
+                        loss += 1;
+                        all += 1;
+                        document.getElementById(`print`).innerText =`Loss 승 : ${win}, 패 : ${loss}, 비김 : ${drow}` ;
+                        
+                    } else {
+                        document.getElementById(`print`).innerText =`입력을 잘못하셧습니다. 기록을 초기화 합니다. ` ;
+                        win *= 0;
+                        loss *= 0;
+                        drow *= 0;
+                        all *= 0;
+                    }
+                }
+        }
+        document.getElementById(`btn`).addEventListener(`click`,count);
+    </script>
+</body>
+</html>

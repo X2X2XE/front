@@ -1,0 +1,54 @@
+/* * {
+    box-sizing: border-box; 실무에서 css 설정에 거의 작성 되어 있음
+} */
+body{
+    background-color : #1bbc98;
+}
+.bg{ 
+    width: 300px;
+    height: 220px;
+    background-color: #efefef;
+    border-radius: 5px;
+    position: absolute;
+    text-align: center;
+    right: 40%;
+    bottom: 45%;
+    
+}
+.box > input:first-child{
+    margin-top: 20px;
+}
+.box input{
+    width: 260px;
+    height: 30px;
+    margin-bottom: 10px;
+    margin-right: 20px;
+    margin-left: 20px;
+    border-color: #efefef;
+    border-style: none;
+    border-radius: 7px;
+    color: #ccc;
+}
+.btn {
+    width: 260px;
+    height: 30px;
+    background-color:#aaa;
+    margin-right: 20px;
+    margin-left: 20px;
+    border-radius: 7px;
+    display: inline-block;
+    margin-bottom: 30px;
+    color: white;
+    
+}
+.pid {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 10px;
+}
+.sd {
+    margin-bottom: 20px;
+    font-size: 13px;
+    color: #cfcfcf;
+    text-decoration: underline;
+}

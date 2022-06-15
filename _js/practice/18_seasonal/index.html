@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>24절기</title>
+</head>
+<body>
+    <h1>
+        24절기의 절기를 배열에 순서대로 저장 한 후 랜덤으로 몇번째 절기는?
+        묻는 문제
+    </h1>
+    <ul>
+        <li>
+            24절기를 배열에 선언한다
+        </li>
+        <li>
+            24절기 배열의 인덱스 번호를 활용하여 랜덤으로 몇 번째 절기는 ? 문제 출제 버튼
+        </li>
+        <li>
+            입력해서 정답확인 버튼을 클릭하면 정답 여부와 오답일 경우 정답을 출력한다
+        </li>
+
+    </ul>
+    <button type="button" id="start">문제출제</button><br>
+    <h2 id="quiz"></h2><br>
+    정답 : <input type="text" id="ans"><br>
+    <button type="button" id="end">정답제출</button><br>
+    <h3 id="print"></h3>
+    <h1 id="ratio">10번의 문제를 출제한 후 10문제를 모두 풀면 더이상 출제가 안되고
+        정답률이 출력되도록 해보세요
+    </h1>
+    <h3 id="his"></h3>
+
+
+    <script>
+        const seasonal = [
+            `입춘`, `우수`, `경칩`, `춘분`, `청명`, `곡우`, `입하`,
+            `소만`, `망종`, `하지`, `소서`, `대서`, `입추`, `처서`,
+            `백로`, `추분`, `한로`, `상강`, `입동`, `소설`, `대설`,
+            `동지`, `소한`, `대한`, 
+        ];
+        let ran = Math.floor(Math.random()*24);
+        let ans = seasonal[ran];
+        let anshis = [];
+        let count = 0;
+        console.log(ans, ran);
+        document.getElementById(`start`).addEventListener(`click`, function(){
+            document.getElementById(`quiz`).innerText=`${ran + 1} 번째 절기는 ?`;
+        });
+
+        document.getElementById(`end`).addEventListener(`click`, function(){
+            let qu = document.getElementById(`ans`).value;
+            
+            if(ans == qu){
+                document.getElementById(`print`).innerText='정답';
+                anshis[count]=`정답`;
+            } else {
+                document.getElementById(`print`).innerText=`오답 정답은 ${ans}`;
+                anshis[count]='오답';
+            }
+            count++;
+
+            if(anshis.length == 10){
+                count = 0;
+                for(let i =0; i < anshis.length ; i++){
+                    if(anshis[i]==`정답`){
+                        count++;
+                    }
+                }
+                document.getElementById(`his`).innerText=`10문제의 정답률은 ${count * 10}% 입니다`;
+            }
+            ran = Math.floor(Math.random()*24);
+            ans = seasonal[ran];
+            console.log(ans, anshis.length);
+        });
+
+
+    </script>
+</body>
+</html>

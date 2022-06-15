@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+    <a href="../index.html">상위 폴더로 이동</a>
+    <div class="bg">
+        <form action="login" class ="box">
+            <input type="text" class="text_id" placeholder="아이디"><br>
+            <input type="password" class="text_pw" placeholder="비밀번호">
+        </form>
+        <button type="button" class="btn" disabled>로그인</button>
+        <p class="sd">비밀번호를 잊어버리셨나요?</p>
+    </div>
+
+    <script>
+        function comparison(a,b){
+            if((a && b) > 7){
+                btn.style.setProperty(`background-color`, `#1bbc98`);
+                btn.disabled = false;
+            } else {
+                btn.style.setProperty(`background-color`, `#aaa`);
+                btn.disabled = true;
+            }
+        }
+        const btn = document.querySelector(`.btn`);
+        const id = document.querySelector(`.text_id`);
+        const pw = document.querySelector(`.text_pw`);
+        const id_length = 0;
+        const pw_length = 0;
+        id.addEventListener(`input`, () =>{
+            const id = (document.querySelector(`.text_id`).value).length;
+            
+            id_length = id;
+        })
+        pw.addEventListener(`input`, () =>{
+            const pw = document.querySelector(`text_pw`).value;
+            pw_length = pw.length ; 
+        })
+        comparison(id_length, pw_length);
+        //#1bbc98
+    </script>
+</body>
+</html>

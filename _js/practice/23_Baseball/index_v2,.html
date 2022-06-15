@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>숫자 야구 게임</title>
+</head>
+<body>
+    <h1>
+        0 ~ 9 의 중복되지 않는 정수 3개를 랜덤으로 출제하면 맞추는 게임 
+    </h1>
+    <h3>게임 규칙</h3>
+    <ul>
+        <li>
+            야구게임 기록을 서버에 저장하여 조회 및 삭제를 할 수 있게 만들어 볼것
+        </li>
+        <li>
+            서버측의 데이터 키(객체의 키)는 수정이 불가능하므로 재해석이 필요함
+        </li>
+        <li>
+            id : 자동생성, name : 게임실행유저이름 or 컴퓨터의 정답
+        </li>
+        <li>
+            description : 컴퓨터의 정답 or 유저가 시도한 내용 및 결과
+        </li>
+        <li>
+            price : 소요된 시간, category_id : 총 시도 횟수 or 한 게임 동안 총
+            스트라이크 수
+        </li>
+        <li>
+            created : 게임종료시간, modified : 자동 생성
+        </li>
+        <li>
+            게임 종료시 게임기록은 자동저장 or 버튼을 만들어 저장
+        </li>
+        <li>
+            게임기록 조회는 리스트로 삭제는 리스트의 각 라인 우측에 삭제버튼 제작
+            => 클릭하면 해당 라인 삭제
+        </li>
+        
+
+    </ul>
+    <h3>제작 규칙</h3>
+    이름 : <input type="text" id="user_name"><br>
+    <button type="button" id="play">시작!</button><br>
+   
+    중복되지 않는 3자리 정수 입력 : <input type="number" max="999" min="100" id="play_num"><button type="button" id="play_btn">검사</button><br>
+    <div id="print">
+
+    </div>
+    <hr>
+    <div id="time_print">
+
+    </div>
+    <hr>
+
+    <ol id="itemListArea">
+
+    </ol>
+    <script>
+        function comset() {
+            let com_set = new Set(); // 셋으로 만들어서 중복 없애기
+            do {
+                let ran = Math.floor(Math.random()*10);
+                com_set.add(ran);
+            } while (com_set.size  <3); // 크기가 3이상이 될 떄까지 실행
+            return com_set; //셋 리턴
+        }
+        function comnum(set){
+            let num =[];
+            for (const iterator of set) {
+                num.push(iterator); //셋을 가져와 배열로 넣어주기
+            }
+            return num; // 배열리턴
+        }
+        function strike(com_num, play_num){ //스트라이크 확인
+            let strike = 0;
+            for(let i = 0; i < play_num.length ; i++){
+                if(play_num[i] == com_num[i]){
+                    strike++;
+                }
+            }
+            return strike; //스트라이크 갯수 리턴
+        }
+        function ball(com_num, play_num){ // 볼 확인
+            let ball = 0;
+            for(let i =0; i < play_num.length; i++){
+                
+                for(let j = 0 ;j < play_num.length; j ++){
+                    if(i != j && com_num[i] == play_num[j]){
+                        ball++;                        
+                    }
+                }
+            }
+            return ball; // 볼 갯수 리턴
+        }
+        async function registerItemToServer(itemObj) { //데이터 보내기
+            try {
+              const url =`http://mosncks.dothome.co.kr/api/items/create`;
+              const config = {
+                method : `POST`,
+                headers: {
+                    'Accept':'application/json',
+                    'Content-type':'application/x-www-form-urlencoded'
+                },
+                body : JSON.stringify(itemObj)
+              };
+              const resp = await fetch(url, config);
+              const result = await resp.json();
+              return await result;
+            } catch (error) {
+                console.log(error);
+            } 
+        }
+        async function getItemListFromServer() { // 데이터 가져오기
+            try {
+                const url = "http://mosncks.dothome.co.kr/api/items/read";
+                const resp = await fetch(url);
+                const respText = await resp.text();
+                const itemsObj = await JSON.parse(respText);
+                return await itemsObj;
+            
+            } catch (error) {
+                console.log(error);
+            }
+        }
+        
+        function printItemList(itemArr) { 
+            let str = ``;
+            itemArr.forEach(itemObj => {
+                str += `<li>이름 : ${itemObj.name} | 정답 : ${itemObj.description} | 걸린시간 : ${itemObj.price} | 시도 횟수 : ${itemObj.category_id} | 종료시간 : ${itemObj.created}</li><button type="button" data-ino="${itemObj.id}" id="del">삭제</button><br>
+                    `;
+            });
+            document.getElementById(`itemListArea`).innerHTML = str;
+        }
+
+
+        let play_num = [];
+        let com_set = new Set();
+        let com_num = [];
+        let start_time= [];
+        let end_time = [];
+        let Game = {
+            //com_num : [],  
+            //play_num : [],
+            time : [],
+            count : [],
+        }
+        let player = {
+            name : '',
+            com : '',
+            time : 0,
+            count : 0,
+            end : 0,
+        }
+        let game_count =0;
+        let end_count = 0;
+        document.getElementById(`play`).addEventListener(`click`,function(){
+            let start = new Date();
+            start_time.push(start.getTime()); // 시작 시간 저장
+            com_set = comset();
+            com_num = comnum(com_set); 
+            //Game.com_num.push(com_num);  필요없어짐
+            console.log(com_num, start_time); // 컴퓨터 번호 확인
+            document.getElementById(`print`).innerText=`컴퓨터가 숫자를 정햇습니다!`
+            let name = document.getElementById(`user_name`).value;
+            player.name= name; // 플레이어 이름 넣기
+            let number = ``;
+            com_num.forEach(elem => {
+                number += elem;
+            })
+            console.log(number);
+            player.com = number; // 컴퓨터 넘버 넣기
+        })  
+
+
+
+        document.getElementById(`play_btn`).addEventListener(`click`, function(){
+            let num = String(document.getElementById(`play_num`).value); // 숫자를 받아와서 string화
+            //Game.play_num.push(num); 필요없어짐
+            let num2 = new Set();
+            
+            for(let i=0; i < num.length; i++){
+                play_num[i] = num[i]; // string인걸 전역변수 배열에 넣어줌
+                num2.add(play_num[i]);  // Set에 넣어서 중복된거 제거 
+            }
+            if (!(num2.size ==3)){ // 사용자가 넣은 숫자의 크기가 3자리 인가 확인
+                let print = document.getElementById(`print`);
+                print.innerHTML='';
+                print.innerHTML+=`<h2>올바른 정수가 아닙니다 다시 입력하세요</h2>`;
+            } else {
+            let st = strike(com_num, play_num); // 스트라이크 확인
+            let ba = ball(com_num, play_num); // 볼 확인
+            if (st==3 && ba ==0){ // 스트라이크 3
+                game_count++;
+                let print = document.getElementById(`print`);
+                print.innerHTML = `<h3>Strike!!!!!!!!!!!! 게임 끝 횟수 : ${game_count}</h3>`;
+                
+                let end = new Date(); //끝난 시간 
+                player.end = end; // 끝난 시간 저장
+
+                end_time.push(end.getTime()); //  끝난 시간 저장
+                let time = (end_time[end_count]- start_time[end_count])/1000; // 경과시간 저장
+
+                player.time = time; // 경과시간 저장
+                Game.time.push(time); // 객체에 넣어주기
+
+
+                console.log(end_time,Game.time);
+                end_count++; // 게임시간 저장을 위해 게임 끝낫을 때마다 카운트 증가
+                Game.count.push(game_count); // 시도횟수 저장
+                player.count = game_count;
+                game_count = 0;
+            } else if(st > 0 || ba > 0){  // 스트라이크와 볼이 같이 나온 상황
+                game_count++; // 
+                let print = document.getElementById(`print`);
+                print.innerHTML = `<h3>strike : ${st}, ball : ${ba} 시도횟수 : ${game_count}</h3>`;
+            } else if (st ==0 && ba == 0){ // 아무것도 안나온 아웃 상황
+                game_count++;
+                let print = document.getElementById(`print`);
+                print.innerHTML = `<h3>OUT!!!! 시도횟수 : ${game_count}</h3>`;
+            }  
+            if(Game.time.length > 0){ // 게임 끝난 후 시간이 들어 온 후
+                 // 시도 횟수 저장
+
+                let print = document.getElementById(`time_print`);
+                print.innerHTML = ''; // 매번 초기화
+                Game.time.sort(function(a, b){return a-b;}) // 시간 정렬
+                Game.count.sort(function(a,b){return a-b;}) // 카운트 정렬
+                for(let i =0; i < Game.time.length; i++){ // 등수에 따라 출력
+                    print.innerHTML+=`<h3>${i+1}등 , 시간 : ${Game.time[i]}, 횟수 : ${Game.count[i]} </h3>`;
+                }
+                
+                let itemObj = {
+                    id : ``,
+                    name : '',
+                    description : ``,
+                    price : 0,
+                    category_id : 0,
+                    created : 0,
+                    modified : '',
+                };
+                
+                for (const key in player) {
+                    if(key == `name`){
+                        itemObj.name = player[key];
+                    } else if (key == 'com'){
+                        itemObj.description =player[key];
+                    } else if(key == `time`){
+                        itemObj.price = player[key];
+                    } else if(key == `count`){
+                        itemObj.category_id = player[key];
+                    } else if(key == `end`){
+                        itemObj.created = player[key];
+                    }
+                }
+                // console.log(itemObj);
+                registerItemToServer(itemObj).then(result =>{
+                    console.log(result);
+                })
+            }
+        }
+            
+
+
+           
+
+        });
+
+
+        async function delectItemOfServer(ino){
+            try {
+                const url =`http://mosncks.dothome.co.kr/api/items/delete`;
+                const config = {
+                  method : `POST`,
+                  headers: {
+                      'Accept':'application/json',
+                      'Content-type':'application/x-www-form-urlencoded'
+                  },
+                  body : JSON.stringify({id:ino})
+                };
+                const resp = await fetch(url, config);
+                const result = await resp.json();
+                return await result;
+            } catch (error) {
+                console.log(error);
+            }
+        }
+
+        document.addEventListener(`DOMContentLoaded`, ()=>{
+            getItemListFromServer().then(result => {
+                
+                printItemList(result.items);
+            });
+        });
+        document.addEventListener(`click`,(e) =>{
+            if(e.target.id == `del`){
+                delectItemOfServer(e.target.dataset.ino).then(result => {
+                console.log(result);
+                alert(result.message);
+                
+                
+            });
+            }
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz 5</title>
+</head>
+<body>
+  <h1>
+    Q5. 6과목 점수를 입력하면 평균 90이상 : A부터 10점 간격으로 B, C, D, 60점 미만은 F를 판단하여 출력하기 (과제용)
+  </h1>
+  국어 <input type="number" id="kor" max="100" min="0"><br>
+  영어 <input type="number" id="eng" max="100" min="0"><br>
+  수학 <input type="number" id="mat" max="100" min="0"><br>
+  사회 <input type="number" id="soc" max="100" min="0"><br>
+  과학 <input type="number" id="sci" max="100" min="0"><br>
+  체육 <input type="number" id="pla" max="100" min="0"><br>
+  <button type="button" id="btn">전송</button><br>
+  <h2 id ="print"></h2>
+  
+  <script>
+    document.getElementById(`btn`).addEventListener(`click`,function(){
+      let kor = parseInt(document.getElementById(`kor`).value);
+      let eng = parseInt(document.getElementById(`eng`).value);
+      let mat = parseInt(document.getElementById(`mat`).value);
+      let soc = parseInt(document.getElementById(`soc`).value);
+      let sci = parseInt(document.getElementById(`sci`).value);
+      let pla = parseInt(document.getElementById(`pla`).value);
+
+      let all = Math.floor((kor + eng + mat + soc + sci + pla)/60) ;
+      switch (all) {
+        case 10:
+        case 9:
+          document.getElementById(`print`).innerText=`등급 : A`;
+          break;
+        case 8:
+          document.getElementById(`print`).innerText=`등급 : B`;
+          break;
+        case 7:
+          document.getElementById(`print`).innerText=`등급 : c`;
+          break;
+        case 6:
+          document.getElementById(`print`).innerText=`등급 : D`;
+          break;
+        default:
+          document.getElementById(`print`).innerText=`등급 : F`;
+          break;
+      }
+      console.log(`작동`, all);
+    })
+  </script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>별찍어보자</title>
+</head>
+<body>
+    <h1>높이(양의정수)를 입력받으면 직각삼각형의 모양으로 별(*)의 탑이 출력되게 해보세요</h1>
+    <pre>
+    입력받은 숫자 : 5
+    *
+    **
+    ***
+    ****
+    *****
+    </pre>
+    입력받은 숫자 <input type="number" id="star"><button type="button" id="btn">출력</button>
+    <h3 id="print"></h3>
+    <script>
+        document.getElementById(`btn`).addEventListener('click',function(){
+            let get = parseInt(document.getElementById(`star`).value);
+            let count =1;
+            let count2 = 1;
+            let pr = '';
+            while(count <= get){
+                while(count2 <= count){
+                    pr+=`*`;
+                    count2++;
+                }
+                
+                
+                count2 = 1;
+                pr+=`<br>`;
+                count++
+            }
+            document.getElementById(`print`).innerHTML=`${pr}`;
+        })
+    </script>
+</body>
+</html>

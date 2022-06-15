@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>로또추첨기 Ver 1.0</title>
+</head>
+<body>
+    <a href="index_v2.html">Set 객체를 사용하지 않은 것</a>
+    <h1>
+        1 ~ 45 까지의 중복되지 않는 숫자 6개사 랜덤으로 추출되어 순서대로 출력하기
+        단, Set 객체를 사용하여 구현할 것
+    </h1>
+
+    <script>
+        let loto = new Set();
+        let number =1;
+        for(let i = 1; i < 7; i++){
+            let num = Math.floor((Math.random()*44)+1);
+            loto.add(num);
+            if(i >= 2 && !(loto.size == i)){
+                i--;
+                
+            }
+            
+            console.log(loto.size);
+        }
+        loto.forEach(function(v, i, s){
+            
+            console.log(`${number}번째 번호는 : ${v}`);
+            number++;
+        })
+    </script>
+</body>
+</html>

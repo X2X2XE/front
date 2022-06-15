@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz 1</title>
+</head>
+<body>
+  <h1>
+    Q1. 영화 제목 5개를 입력받고 출력하기 (복습용)
+  </h1>
+  영화 제목 5개를 입력하세요 <input type="text" id="movie"> <button type="button" id="btn" onclick="target()">5번 누르세요</button><br>
+  <button type="button" id="print_btn">출력버튼</button><br>
+  <h2 id="print"></h2>
+  <script>
+    function target() {
+      if(count == 4) {
+        const btn = document.getElementById(`btn`);
+        btn.disabled = true;
+      }
+    }
+
+
+    let movie = [];
+    let count = 0;
+
+    document.getElementById(`btn`).addEventListener(`click`,function(){
+      let name = document.getElementById(`movie`).value;
+      movie.push(name);
+      count++;
+    })
+    
+    document.getElementById(`print_btn`).addEventListener(`click`, function(){
+      if(movie.length == 5){
+        let print =``;
+        for(let i =0; i < movie.length; i++){
+          if(i == movie.length-1){
+            print += `${movie[i]}`;
+            break;
+          }
+          print +=`${movie[i]}, `;
+        }
+        document.getElementById(`print`).innerText = `${print}`;
+      }else {
+        document.getElementById(`print`).innerText = `영화제목 5개를 입력하지 않았습니다.`
+      }
+    })
+  </script>
+</body>
+</html>

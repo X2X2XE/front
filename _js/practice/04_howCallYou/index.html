@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>한국에서 호칭 선택하기</title>
+</head>
+<body>
+    <h1>
+        외국인들이 가장 어려워하는 것 중 하나가 한국인들의 호칭
+    </h1>
+    <h3>부르는 사람 : 성별, 나이</h3>
+    <h3>부르는 대상 : 성별, 나이</h3>
+    를 입력받으면 어떻게 부르는 지를 출력해 주는 로직을 완석해보시오.
+
+    <form action="">
+        부르는 사람 : <input type="text" placeholder="성별" id="you_s"><br>
+        <input type="text" placeholder="나이" id="you_o"><br>
+        부르는 대상 : <input type="text" placeholder="성별" id="that_s"><br>
+        <input type="text" placeholder="나이" id="that_o">
+        <button type="button" onclick="call()">입력</button>
+        <h3 id="print"></h3>
+    </form>
+    <script>
+        function call() {
+            let y_s = document.getElementById(`you_s`).value;
+            let y_o = parseInt(document.getElementById(`you_o`).value);
+            let t_s = document.getElementById(`that_s`).value;
+            let t_o = parseInt(document.getElementById(`that_o`).value);
+            console.log(y_s, typeof y_s, y_o, typeof y_o, t_s, typeof t_s, t_o, typeof t_o);
+            if(y_s == `남자` && t_s == `남자`){
+                if(y_o == t_o){
+                    document.getElementById(`print`).innerText = `친구`;
+                } else if (y_o > t_o){
+                    document.getElementById(`print`).innerText = `동생`;
+                } else {
+                    document.getElementById(`print`).innerText = `형`;
+                }
+            }else if (y_s == `남자` && t_s == `여자`) {
+                if(y_o == t_o){
+                    document.getElementById(`print`).innerText = `친구`;
+                } else if (y_o > t_o){
+                    document.getElementById(`print`).innerText = `여동생`;
+                } else {
+                    document.getElementById(`print`).innerText = `누나`;
+                }
+            } else if (y_s == `여자` && t_s == `남자`){
+                if(y_o == t_o){
+                    document.getElementById(`print`).innerText = `친구`;
+                } else if (y_o > t_o){
+                    document.getElementById(`print`).innerText = `남동생`;
+                } else {
+                    document.getElementById(`print`).innerText = `오빠`;
+                }
+
+            } else if (y_s == `여자` && t_s == `여자`) {
+                if(y_o == t_o){
+                    document.getElementById(`print`).innerText = `친구`;
+                } else if (y_o > t_o){
+                    document.getElementById(`print`).innerText = `동생`;
+                } else {
+                    document.getElementById(`print`).innerText = `언니`;
+                } 
+            } else {
+                document.getElementById(`print`).innerText = `입력하신 값이 이상합니다.`;
+            }
+
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>마지막 신청자의 점수는?</title>
+</head>
+<body>
+    <h1>
+        랜덤으로 100명의 신청자의 점수를 만들어 배열에 담아 첫번째, 마지막 신청자의 점수를 출력하세요
+        단 100이라는 숫자는 사용하지 말것
+    </h1>
+    <button type="button" id="btn">출력</button>
+    <h2 id="print"></h2>
+    <script>
+        let gest = [];
+        for(let i=0; i <= 99; i++){
+        let ran = Math.floor(Math.random()*99)+1;
+        
+        gest[i] = ran;
+        
+        
+    }
+    console.log(gest.length);
+    document.getElementById(`btn`).addEventListener(`click`,function(){
+        let fir = gest.shift();
+        let las = gest.pop();
+        
+        document.getElementById('print').innerText=`첫번째 : ${fir}, 마지막 : ${las}`;
+    })
+
+    </script>
+</body>
+</html>

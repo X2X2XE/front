@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이미지 파일 구분</title>
+</head>
+<body>
+    <h1>
+        input text에 파일명.확장자를 입력하여 전송버튼을 누르면 이미지 파일인지 검사하여
+        이미지파일이면 정상파일입니다. 이미지 파일이 아니면 이미지 파일만 가능합니다.라고
+        출력하기
+    </h1>
+    <input type="text" placeholder="이미지 파일명을 붙이세요" id="img_name">
+    <button type="button" onclick="imageFileValid()">확인하기</button>
+    <h3 id="print"></h3>
+    <script>
+        function imageFileValid() {
+            let image_name = document.getElementById(`img_name`).value;
+            let valuese = ``;
+            image_name = image_name.toLowerCase();
+            console.log(image_name);
+            
+            
+            // 대문자로 된 확장자명도 소문자기준으로 판단 가능해야 함
+            valuese = image_name.endsWith(`png`) ? true  
+            : image_name.endsWith(`jpg`) ? true 
+            : image_name.endsWith(`jpeg`) ? true 
+            : image_name.endsWith(`gif`) ? true 
+            : false ;
+
+            valuese = valuese ? `정상파일입니다` : `이미지파일만 가능합니다`;
+
+            document.getElementById(`print`).innerText=`${valuese}`;
+        }
+
+    </script>
+</body>
+</html>

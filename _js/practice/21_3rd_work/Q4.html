@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz 4</title>
+</head>
+<body>
+  <h1>
+    Q4. 입력할 인원수를 입력받고 각 인원의 이름과 나이를 입력받으면 리스트로 출력하기 (과제용)
+  </h1>
+  입력할 인원수 <input type="number" id="inone"><button type="button" id="in_btn">인원입력</button><br>
+  이름 <input type="text" id="name">나이<input type="number" id="year"><button type="button" id="btn" onclick="fall()">입력</button> <br>
+  <h2 id="print"></h2>
+  <ol id="print2">
+
+  </ol>
+  <script>
+    let inone = 1;
+    
+    const ban_map = new Map();
+    let na = [];
+    let ye = [];
+    function fall() {
+      const rock = document.getElementById(`btn`);
+      if(ban_map.size == inone){
+      rock.disabled = true;
+      }
+    }
+    document.getElementById(`in_btn`).addEventListener(`click`, function(){
+      inone = parseInt(document.getElementById(`inone`).value);
+      if(inone < 0){
+        document.getElementById(`print`).innerText =`인원 수 입력이 잘못되었습니다.`;
+      }
+    })
+
+    document.getElementById(`btn`).addEventListener(`click`, function(){
+      
+      let name = document.getElementById(`name`).value;
+      let year = parseInt(document.getElementById(`year`).value);
+      ban_map.set(name, year);
+      console.log(inone, ban_map.size);
+      
+      if(ban_map.size == inone){
+        ban_map.forEach(function(v, k){
+          console.log(k,v);
+          na.push(k);
+          ye.push(v);
+        })
+        let pr = '';
+        for(let i=0; i < na.length ; i++){
+          pr +=`<li>이름 : ${na[i]}, 나이 : ${ye[i]}</li>`;
+        }
+        console.log(pr, na, ye);
+        document.getElementById(`print2`).innerHTML+=pr;  
+      }
+    })
+  </script>
+</body>
+</html>

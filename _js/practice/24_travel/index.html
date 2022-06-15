@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Index</title>
+    <link rel="stylesheet" href="/_css/practice/css/style.css">
+</head>
+<body>
+    <h1>Travel</h1>
+    <ul>
+        <li><a href="#" class="city home">Home</a></li>
+        <li><a href="#" class="city seoul">Seoul</a></li>
+        <li><a href="#" class="city tokyo">Tokyo</a></li>
+        <li><a href="#" class="city paris">Paris</a></li>
+    </ul>
+    <img id="image" src="wing.jpg" >
+
+    <script>
+        function testtt(e) {
+            e.style.fontWeight = `bold`;
+            e.style.setProperty(`cursor`, `pointer`);
+        }
+        function reset() {
+            for (const ele of all) {
+                ele.style.fontWeight = `normal`;
+            }
+            
+        }
+        const all = document.querySelectorAll(`.city`);
+        const tet = document.querySelector(`.home`);
+        const tet2 = document.querySelector(`.seoul`);
+        const tet3 = document.querySelector(`.tokyo`);
+        const tet4 = document.querySelector(`.paris`);
+        const img = document.getElementById(`image`);
+        
+        
+
+        document.querySelector(`.home`).addEventListener(`click`, () => {
+            reset();
+            tet.onclick = testtt(tet);
+            img.src =`wing.jpg`
+        })
+        document.querySelector(`.seoul`).addEventListener(`click`, () => {
+            reset();
+            tet2.addEventListener(`click`,testtt(tet2));
+            img.src = `seoul.jpg`;
+        })
+        document.querySelector(`.tokyo`).addEventListener(`click`, () => {
+            reset()
+            tet3.addEventListener(`click`,testtt(tet3));
+            img.src = `tokyo.jpg`;
+        })
+        document.querySelector(`.paris`).addEventListener(`click`, () => {
+            reset();
+            tet4.addEventListener(`click`,testtt(tet4));
+            img.src = `paris.jpg`;
+        })
+        
+
+    </script>
+</body>
+</html>

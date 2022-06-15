@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>각 달의 마지막 날 구하기</title>
+</head>
+<body>
+    <h1>
+        1월 부터 12월을 일력하면 입력한 달의 마지막 일자가 몇일 인지 출력(switch문 활용)
+    </h1>
+    <input type="number" id="insert" min="1" max="12">1~12월 중 입력<br>
+    <button type="button" id="btn">입력</button>
+    <h2 id="print"></h2>
+
+    <script>
+        document.getElementById(`btn`).addEventListener(`click`,function(){
+            let int = parseInt(document.getElementById(`insert`).value);
+            switch (int) {
+                case  1 :
+                case  3 :
+                case  5 :
+                case  7 :
+                case  8 :
+                case  10 :
+                case  12 :
+                    document.getElementById(`print`).innerText=`${int}월 달의 마지막은 31일 입니다.`;
+                    break;
+                case  4 :
+                case  6 :
+                case  9 :
+                case  11 :
+                    document.getElementById(`print`).innerText=`${int}월 달의 마지막은 30일 입니다.`;
+                    break;
+                default:
+                document.getElementById(`print`).innerText=`${int}월은 윤년도 있으므로 28일 아니면 29일이 마지막 날짜 입니다.`;
+                    break;
+            }
+        }
+        )
+        let flag = 12 =="12" ;// true
+        switch (flag) {
+            case true :
+                console.log(`boolean도 case문에서 활용할 수 있는가?`);
+                break;
+            case false :
+                console.log(`boolean도 case 문에서 활용할 수 있는가???`);
+                break;
+            default:
+                break;
+        }
+    </script>
+</body>
+</html>
