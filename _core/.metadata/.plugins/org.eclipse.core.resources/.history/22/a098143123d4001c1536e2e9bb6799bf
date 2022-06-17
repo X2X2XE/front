@@ -1,0 +1,33 @@
+package hotel;
+
+public class User {
+	private String name;
+	private int age;
+	private char gen;
+	public final String getName() {
+		return name;
+	}
+	public final void setName(String name) {
+		this.name = name;
+	}
+	public final int getAge() {
+		return age;
+	}
+	public final void setAge(int age) {
+		this.age = age;
+	}
+	public final char getGen() {
+		return gen;
+	}
+	public final void setGen(char gen) {
+		this.gen = gen;
+	}
+	public User(String[3] str) {
+		super();
+		this.name = str[0];
+		this.age = str[1];
+		this.gen = str[2];
+	}
+	
+	
+}

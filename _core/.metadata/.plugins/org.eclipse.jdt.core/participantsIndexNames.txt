@@ -1,0 +1,5 @@
+INDEX VERSION 1.131
+C:\_java\lec\_core\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2556097773.index
+\01_jsp_first_mysql\src\main\java
+C:\_java\lec\_core\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3976891145.index
+\01_jsp_first_mysql\src\main\java

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;Quiz3.java&apos; to &apos;04_Method/src/creation&apos;&#x0D;&#x0A;- Original project: &apos;03_Array&apos;&#x0D;&#x0A;- Destination element: &apos;04_Method/src/creation&apos;&#x0D;&#x0A;- Original element: &apos;quiz.Quiz3.java&apos;" description="Copy compilation unit" destination="=04_Method/src&lt;creation" element1="/src&lt;quiz{Quiz3.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1652338529635" units="1" version="1.0"/>
+</session>

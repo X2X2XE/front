@@ -1,0 +1,92 @@
+package baseball;
+
+import java.util.Scanner;
+
+public class Start {
+	private int[] com;
+	Scanner sc = new Scanner(System.in);
+	private int count, strike, ball,game_count;
+	private String num1,num2,num3;
+	private boolean flag = true;
+	
+	public void ready_com() {
+		com = new int[3];
+		for(int i=0; i<com.length; i++) {
+			com[i] = (int)Math.floor(Math.random()*10);
+			for(int j=0; j<i;j++) {
+				if(com[i] == com[j]) {
+					i--;
+				}
+			}
+		}
+		System.out.println("컴퓨터가 숫자를 골랏습니다");
+	}
+
+	public String select_num() {
+		while(true) {
+			System.out.println("중복 되지 않는 숫자 3개를 입력하세요");
+			String player_num = sc.next();
+			num1 = String.valueOf(player_num.charAt(0));
+			num2 = String.valueOf(player_num.charAt(1));
+			num3 = String.valueOf(player_num.charAt(2));
+			if(player_num.length() !=3) {
+				System.out.println("입력한 숫자가 3자리가 아닙니다");
+			} else if(num1.equals(num2)||num1.equals(num3)||num2.equals(num3)) {
+				System.out.println("입력한 숫자가 중복되엇습니다");
+			} else {
+				game_count++;
+				return player_num;
+			}
+		}
+		
+	}
+
+	public void game_start() {
+		ready_com();// 게임시작
+		while(flag) {
+			
+			for (int i : com) {
+				System.out.println(i);
+			}
+			String player_num = select_num(); // 플레이어 숫자선택
+			equl();
+		}
+		
+		
+		
+	}
+
+	private void equl() {
+		String[] play_arr = {num1,num2,num3};
+		for(int i=0; i<com.length; i++) {
+			for(int j=0; j<play_arr.length;j++) {
+				if(i==j && play_arr[j].equals(Integer.toString(com[i]))) {
+					strike++;
+				}else if(i!=j && play_arr[j].equals(Integer.toString(com[i]))){
+					ball++;
+				} 
+			}
+		}
+		result_print();
+		
+	}
+
+	private void result_print() {
+		if(strike==0 && ball==0) {
+			System.out.println("OUT!!!!!!!!!!!!!!");
+		} else if(strike==3){
+			System.out.print("스트라이크 : " + strike);
+			System.out.println("  볼 : " +ball);
+			flag = false;
+		}
+		else {
+			System.out.print("스트라이크 : " + strike);
+			System.out.println("  볼 : " +ball);
+			strike =0;
+			ball =0;
+		} 
+		
+		
+	}
+	
+}

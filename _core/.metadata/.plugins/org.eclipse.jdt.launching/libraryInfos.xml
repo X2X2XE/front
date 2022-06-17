@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<libraryInfos>
+    <libraryInfo home="C:\_java\eclipse\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_15.0.2.v20210201-0955\jre" version="15.0.2"/>
+    <libraryInfo home="C:\_java\eclipse\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_15.0.2.v20210201-0955" version="15.0.2"/>
+    <libraryInfo home="C:\Program Files\JAVA\openjdk-8u212-b03\jre" version="1.8.0_212-8u">
+        <bootpath>
+            <entry path="C:\Program Files\JAVA\openjdk-8u212-b03\jre\lib\resources.jar"/>
+            <entry path="C:\Program Files\JAVA\openjdk-8u212-b03\jre\lib\rt.jar"/>
+            <entry path="C:\Program Files\JAVA\openjdk-8u212-b03\jre\lib\sunrsasign.jar"/>
+            <entry path="C:\Program Files\JAVA\openjdk-8u212-b03\jre\lib\jsse.jar"/>
+            <entry path="C:\Program Files\JAVA\openjdk-8u212-b03\jre\lib\jce.jar"/>
+            <entry path="C:\Program Files\JAVA\openjdk-8u212-b03\jre\lib\charsets.jar"/>
+            <entry path="C:\Program Files\JAVA\openjdk-8u212-b03\jre\lib\jfr.jar"/>
+            <entry path="C:\Program Files\JAVA\openjdk-8u212-b03\jre\classes"/>
+        </bootpath>
+        <extensionDirs>
+            <entry path="C:\Program Files\JAVA\openjdk-8u212-b03\jre\lib\ext"/>
+            <entry path="C:\Windows\Sun\Java\lib\ext"/>
+        </extensionDirs>
+        <endorsedDirs>
+            <entry path="C:\Program Files\JAVA\openjdk-8u212-b03\jre\lib\endorsed"/>
+        </endorsedDirs>
+    </libraryInfo>
+</libraryInfos>
