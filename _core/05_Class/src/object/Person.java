@@ -1,0 +1,63 @@
+package object;
+
+class Pet {
+	String nick; // class의 정적인 정보 (상태값 : 변수에 저장)
+	int age;	 // 상태값을 변경시킬 수 있는 동적 존재 : 메서드를 활용
+	
+	// 상태값을 변경시킬 수 있는 동적 존재 : 메서드를 활용
+	static void sound(String nick) {
+		System.out.println(nick + "은 소리를 낸다");
+	}
+	void initialize(String nickName, int petAge) {
+		nick = nickName;
+		age = petAge;
+	}
+	void getInfo() {
+		System.out.println("1-1:"+this.nick);
+		System.out.println("2-1:"+this.age);
+		
+	}
+	int getOld() {
+		age++;
+		return age;
+	}
+	boolean die() {
+		nick = "";
+		age = 0;
+		return false;
+		
+	}
+}
+
+public class Person { //Person 이라는 개념을 만들기 위한 분류
+	String name;
+	int age;
+	
+	void speak() {
+		System.out.println("사람은 말을 한다");
+	}
+	
+	public static void main(String[] args) {
+		// 인스턴스 만들기
+		Pet myPet = new Pet(); // 메모리의 heap영역에 주속밧을 생성하여 접근(이용) 가능하게 함
+//		Pet.sound();
+		myPet.sound("냐옹이"); // Pet이라는 객체에 냐옹이를 설정하여 동작하게 함
+		myPet.nick = "멍뭉이"; // Pet이라는 객체에 멍뭉이를 설정
+		myPet.age = 3;
+		
+		Pet yourPet = new Pet();
+//		yourPet.nick = "냥";
+//		yourPet.age =1;
+		yourPet.initialize("냥", 1);
+//		System.out.println(yourPet.nick);
+//		System.out.println(yourPet.age);
+		yourPet.getInfo(); // 냥이는 한 살임
+		int age = yourPet.getOld(); // 냥이 한 살 묵음
+//		yourPet.getInfo(); // 냥이 두 살 됨 그래서 돼냥이 됨
+		System.out.println("현재 냥이는" + age + "짤");
+		yourPet.die();
+		yourPet.getInfo();
+		
+	}
+
+}
