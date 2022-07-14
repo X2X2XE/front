@@ -1,0 +1,116 @@
+package hotel;
+
+import java.util.List;
+import java.util.Scanner;
+
+public class HotelFront {
+	private Scanner sc;
+	private boolean flag = true;
+	private Service svc;
+	
+	public HotelFront() {
+		sc = new Scanner(System.in);
+		svc = new HotelService();
+		flag = true;
+		printMenu();
+	}
+
+	private void printMenu() {
+		while(flag){
+		System.out.println("------호텔 관리 시스템-------");
+		System.out.println("1:방생성 2:호텔현항 3:호텔입실 4:호텔퇴실 5:고객조회 Etc:종료");
+		int menu = sc.nextInt();
+		switch (menu) {
+		case 1:
+			create_room();
+			break;
+		case 2:
+			show_room();
+			break;
+		case 3:
+			insert_user();
+			break;
+		case 4:
+			out_user();
+			break;
+		case 5:
+			show_user();
+			break;
+
+		default:
+			flag = false;
+			System.out.println("호텔프로그램 종료");
+			break;
+		}
+		System.out.println("프로그램 끝");
+		
+		
+		
+		}
+	}
+
+	private void show_user() {
+		System.out.println("사용자를 확인할 방번호 입력 >>");
+		String rno = sc.next();
+		HotelVO user_list = svc.user_list(rno);
+		System.out.println("방번호 : " + user_list.getRno());
+		System.out.println("이름 : " + user_list.getGuest_name());
+		System.out.println("전화번호 : " + user_list.getGuest_tel());
+		System.out.println("나이 : " + user_list.getGuest_age());
+		System.out.println("성별 : " + (user_list.getGuest_gen()==1? "남자" : "여자"));
+		System.out.println("체크인 시간 : " + user_list.getCheck_in_time());
+		System.out.println("체크아웃 시간 : " + user_list.getCheck_out_time());
+	}
+
+	private void out_user() {
+		System.out.println("퇴실시킬 방 번호 입력 >>");
+		String rno = sc.next();
+		int isOk = svc.out_us(rno);
+		if(isOk >0) {
+			System.out.println(rno + "호 퇴실 완료");
+		} else {
+			System.out.println("퇴실 실패 오류");
+		}
+	}
+
+	private void insert_user() {
+		System.out.println("방번호 입력 >>");
+		String rno = sc.next();
+		System.out.println("이름 입력 >>");
+		String guest_name = sc.next();
+		System.out.println("나이 입력 >>");
+		int guest_age = sc.nextInt();
+		System.out.println("1:남자 2:여자");
+		int guest_gen = sc.nextInt();
+		System.out.println("전화번호 입력 >>");
+		String guest_tel = sc.next();
+		int isOk = svc.in_user(new HotelVO(rno, guest_name, guest_age, guest_gen, guest_tel));
+		if(isOk >0) {
+			System.out.println("입실 완료");
+		} else {
+			System.out.println("오류 실패");
+		}
+		
+		
+	}
+
+	private void show_room() {
+		List<HotelVO> list = svc.list();
+		for (HotelVO hvo : list) {
+			System.out.println(hvo);
+		}
+		
+	}
+
+	private void create_room() {
+		System.out.println("층수 입력 >>");
+		int floor = sc.nextInt();
+		System.out.println("한층에 있는 방수 입력");
+		int room = sc.nextInt();
+		int create = svc.creat_room(floor,room);
+		if(create >0) {
+			System.out.println("생성완료");
+		}
+		
+	}
+}
