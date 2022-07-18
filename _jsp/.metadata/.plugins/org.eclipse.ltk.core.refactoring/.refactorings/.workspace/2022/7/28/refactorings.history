@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Delete 12 resources" deleteContents="true" description="Delete 12 resources" element1="/01_jsp_first_mysql" element10="/06_final_jsp_fileUpload" element11="/coffee" element12="/test334" element2="/02_jsp_jstl_mysql_dbcp" element3="/02_t" element4="/03_jsp_jstl_mysql_dbcp" element5="/03_jsp_jstl_mysql_dbcp_session" element6="/04_final_jsp_crud" element7="/04_final_jsp_crud(me)" element8="/05_final_jsp_ajax" element9="/05_final_jsp_ajax(lo)" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="12" stamp="1657273800170"/>
+</session>
