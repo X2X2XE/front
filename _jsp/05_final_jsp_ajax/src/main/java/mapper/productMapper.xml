@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="ProductMapper">
+  <insert id="add" parameterType="pvo">
+    insert into product (pname, price, madeby)
+    values (#{pname}, #{price}, #{madeby})
+  </insert>
+  <select id="list" resultType="pvo" >
+    select * from product
+  </select>
+  <update id="mod" parameterType="pvo" >
+    update product set pname = #{pname}, price = #{price}, madeby = #{madeby}
+    where pno = #{pno}
+  </update>
+  <select id="selOne" resultType="pvo" parameterType="int">
+    select pno, pname, price, madeby, regdate
+    from product where pno = #{pno}
+  </select>
+  <delete id="del" parameterType="int">
+    delete from product where pno = #{pno}
+  </delete>
+</mapper>
