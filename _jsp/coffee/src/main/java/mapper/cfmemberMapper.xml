@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="CfMemberMapper">
+  <insert id="reg" parameterType="cfmvo">
+    insert into cfmember (id, pwd, tel, grade)
+    values (#{id}, #{pwd}, #{tel}, 2)
+  </insert>
+  <select id="check" parameterType="string" resultType="cfmvo">
+    select id from cfmember where id = #{id}
+  </select>
+  <select id="det" parameterType="string" resultType="cfmvo">
+    select * from cfmember where id= #{id}
+  </select>
+  <select id="login" parameterType="cfmvo" resultType="cfmvo">
+    select * from cfmember where id = #{id} and pwd = #{pwd}
+  </select>
+  <update id="mod" parameterType="cfmvo">
+    update cfmember set tel = #{tel}
+    where id= #{id} 
+  </update>
+  <delete id="del" parameterType="string">
+  delete from cfmember where id = #{id}
+  </delete>
+</mapper>

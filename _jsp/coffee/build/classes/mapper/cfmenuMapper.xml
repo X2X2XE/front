@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="CfMenuMapper">
+  <insert id="reg" parameterType="cfmevo">
+    insert into cfmenu (name, kind, price, image_file )
+    values (#{name}, #{kind}, #{price}, #{image_file})  
+  </insert>
+  <select id="list" resultType="cfmevo">
+  select * from cfmenu
+  </select>
+  <select id="detail" parameterType="string" resultType="cfmevo">
+  select * from cfmenu where pno = #{pno}
+  
+  </select>
+  <update id="mod" parameterType="cfmevo">
+  update cfmenu set name = #{name}, price = #{price}, kind = #{kind}, image_file = #{image_file}
+  where pno = #{pno}
+  </update>
+  <delete id="del" parameterType="string">
+    delete from cfmenu where pno = #{pno}
+  </delete>
+  <update id="change" parameterType="cfmevo">
+    update cfmenu set sal = #{sal}
+    where pno = #{pno}
+  </update>
+</mapper>

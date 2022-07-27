@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="CfOrderMapper">
+  <select id="order_list" parameterType="string" resultType="cfovo" >
+    select * from cforder where id = #{id} and order_time > 0
+  </select>
+  <insert id="reg" parameterType="cfovo">
+    insert into cforder (id, name, pno, image_file, price, kind)
+    values (#{id}, #{name}, #{pno}, #{image_file}, #{price}, #{kind})
+  </insert>
+  <select id="cart_list" parameterType="string" resultType="cfovo">
+    select * from cforder where id = #{id}
+  </select>
+  <update id="order" parameterType="cfovo">
+    update cforder set ono = #{ono}, id = #{id}, temper = #{temper}, the_number = #{the_number}, etc = #{etc}, order_time = now(), made = 1
+    where id = #{id} and ono = #{ono} 
+  </update>
+  <delete id="cel" parameterType="string">
+    delete from cforder where ono = #{ono}
+  </delete>
+  <select id="getid" parameterType="string" resultType="cfovo">
+    select id from cforder where ono = #{ono}
+  </select>
+  <update id="order_cancel" parameterType="string">
+    update cforder set made=3
+    where ono = #{ono}
+  </update>
+  <delete id="order_remove" parameterType="string">
+    delete from cforder where ono = #{ono}
+  </delete>
+  <select id="host_list" resultType="cfovo">
+    select * from cforder where made > 0
+    order by order_time desc;
+  </select>
+  <update id="finish" parameterType="string">
+    update cforder set made=2 , endtime = now()
+    where ono = #{ono}
+  </update>
+  <update id="host_cancel" parameterType="string">
+    update cforder set made=4 , endtime = now()
+    where ono = #{ono}
+  </update>
+</mapper>
