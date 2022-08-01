@@ -1,0 +1,10 @@
+package com.misson.www.repository;
+
+import com.misson.www.domain.UserVO;
+
+public interface UserDAO {
+	int insert(UserVO uvo);
+	UserVO select_login(UserVO uvo);
+	int select_email(String email);
+	
+}

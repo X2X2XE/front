@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aop-reference-model>
+<aop-project name="40_spring5_javaConfig_setting"/>
+<aop-project name="base"/>
+<aop-project name="50_paging"/>
+<aop-project name="70_aop"/>
+<aop-project name="00_setting"/>
+<aop-project name="60_file_attach"/>
+<aop-project name="10_member"/>
+<aop-project name="20_product"/>
+<aop-project name="test"/>
+<aop-project name="30_comment"/>
+<aop-project name="80_security"/>
+<aop-project name="misson"/>
+</aop-reference-model>

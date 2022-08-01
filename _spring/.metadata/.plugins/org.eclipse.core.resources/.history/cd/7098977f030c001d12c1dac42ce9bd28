@@ -1,0 +1,23 @@
+package com.myweb.www.domain;
+
+import java.util.List;
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+
+@Getter
+@Setter
+@ToString
+@AllArgsConstructor
+public class ProductDTO {
+	public ProductDTO(ProductVO selectOne, List<FileVO> selectListFile) {
+		// TODO Auto-generated constructor stub
+	}
+	private ProductVO pvo;
+	private List<FileVO> fileList;
+	
+	
+	
+}

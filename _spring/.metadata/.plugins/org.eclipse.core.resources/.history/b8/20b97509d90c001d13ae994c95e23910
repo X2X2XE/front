@@ -1,0 +1,5 @@
+package com.misson.www.service;
+
+public interface BoardService {
+	int register(boardDTO bdto;)
+}

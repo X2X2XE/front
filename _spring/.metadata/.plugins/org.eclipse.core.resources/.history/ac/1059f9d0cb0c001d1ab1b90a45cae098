@@ -1,0 +1,21 @@
+package com.misson.www.ctrl;
+
+import javax.inject.Inject;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.misson.www.service.UserService;
+
+@Controller
+@RequestMapping("/user/*")
+public class UserCtrl {
+	@Inject
+	private UserService usv;
+	
+	@GetMapping("/register")
+	public void register() {
+		
+	}
+}

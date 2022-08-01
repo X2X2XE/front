@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.misson.www.repository.BoardDAO">
+	<sql id="search">
+		<if test="type != null">
+			<trim prefix="and (" suffix=")" prefixOverrides="OR">
+				<foreach collection="typeToArray" item="type">
+					<trim prefix="OR">
+						<choose>
+							<when test="type == 't'.toString()">
+								bname like concat('%', #{kw}, '%')
+							</when>
+							<when test="type == 'w'.toString()">
+								writer like concat('%', #{kw}, '%')
+							</when>
+							<when test="type == 'c'.toString()">
+								description like concat('%', #{kw}, '%')
+							</when>
+						</choose>
+					</trim>
+				</foreach>
+			</trim>
+		</if>
+	</sql>
+	<insert id="insert" parameterType="bvo">
+		insert into board
+		(category,
+		bname, writer, description, file_count)
+		values(#{category},#{bname}, #{writer}, #{description},
+	 #{fileCount})
+	</insert>
+
+	<select id="select_list" resultType="bvo" >
+		select
+		category, a.bno, bname, writer, mod_at, read_count,
+		cmt_qty, file_count
+		from (
+		select bno from board where pno > 0
+		<include refid="search" />
+		order by bno desc
+		limit #{pgvo.pageStart}, #{pgvo.qty}
+		) a left join board b
+		on
+		a.bno = b.bno and category = #{category}  
+
+	</select>
+	<select id="select_one" resultType="bvo">
+		select *
+		from board where bno
+		= #{bno}
+	</select>
+	<select id="select_total_count" resultType="int" parameterType="pgvo">
+		select count(bno) from board where bno > 0
+		<include refid="search"/>
+	</select>
+	<select id="select_last_bno" resultType="long">
+		select max(bno) from board 
+	</select>
+	<update id="update" parameterType="bvo">
+		update board set
+		category =
+		#{category},
+		bname = #{bname},
+		description=
+		#{description},
+		mod_at =now()
+		where bno= #{bno}
+	</update>
+	<update id="updateReadCount">
+		update board set
+		read_count = read_count + #{i}
+		where bno = #{bno}
+	</update>
+	<update id="updateCmtQty">
+		update board set cmt_qty = cmt_qty + #{i}
+		where bno = #{bno}
+		
+	</update>
+	<delete id="delete">
+		delete from board where bno = #{bno}
+	</delete>
+</mapper>

@@ -1,0 +1,19 @@
+package com.misson.www.service;
+
+import com.misson.www.domain.UserVO;
+
+public class UserServiceImpl implements UserService {
+
+	@Override
+	public int register(UserVO uvo) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public UserVO login(UserVO uvo) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

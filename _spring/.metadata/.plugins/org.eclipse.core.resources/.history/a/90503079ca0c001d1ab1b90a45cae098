@@ -1,0 +1,5 @@
+package com.misson.www.service;
+
+public interface UserService {
+
+}

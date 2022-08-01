@@ -1,0 +1,34 @@
+package com.myweb.www.handler;
+
+import java.time.LocalDateTime;
+import java.util.List;
+
+import javax.inject.Inject;
+
+import org.springframework.scheduling.annotation.Scheduled;
+import org.springframework.stereotype.Component;
+
+import com.myweb.www.domain.FileVO;
+import com.myweb.www.repository.FileDAO;
+
+import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
+@Component
+@AllArgsConstructor
+public class FileSweepHandler {
+	private final String UP_DIR = "C:\\_java\\lec\\_spring\\uploaded";
+	
+	@Inject
+	private FileDAO fdao;
+	
+	// 패턴 (cron = "초 분 시 일 월 요일 [년도]")
+	@Scheduled(cron = "1 30 16 * * *")
+	public void fileSweeper() throws Exception{
+		log.info(">>> fileSweeper Running Start : {}", LocalDateTime.now());
+		
+		// 데이터베이스에 등록된 파일 목록 가져오기 : 남겨야 할 파일 목록
+		List<FileVO> dbFileList =  fdao.selectAllFiles();
+	}
+}

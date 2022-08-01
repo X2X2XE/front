@@ -1,0 +1,5 @@
+package com.misson.www.domain;
+
+public class UserVO {
+
+}

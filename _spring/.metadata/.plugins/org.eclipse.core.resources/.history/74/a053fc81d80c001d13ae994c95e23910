@@ -1,0 +1,11 @@
+package com.misson.www.repository;
+
+import java.util.List;
+
+import com.misson.www.domain.BoardVO;
+import com.misson.www.domain.PagingVO;
+
+public interface BoardDAO {
+	int insert(BoardVO bvo);
+	List<BoardVO> select_list(PagingVO pgvo);
+}

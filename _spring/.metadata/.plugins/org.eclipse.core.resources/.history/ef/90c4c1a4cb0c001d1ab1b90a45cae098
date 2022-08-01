@@ -1,0 +1,8 @@
+package com.misson.www.ctrl;
+
+import org.springframework.web.bind.annotation.RequestMapping;
+
+@RequestMapping("/user/*")
+public class UserCtrl {
+
+}

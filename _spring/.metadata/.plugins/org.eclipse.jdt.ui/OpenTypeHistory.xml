@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<typeInfoHistroy>
+    <typeInfo handle="=00_setting/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.myweb.www.service{MemberService.java[MemberService" modifiers="513" timestamp="1658919198840"/>
+    <typeInfo handle="=00_setting/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.myweb.www.repository{CommentDAO.java[CommentDAO" modifiers="513" timestamp="1658815412886"/>
+    <typeInfo handle="=00_setting/C:\/_java\/jdk-11.0.15\/lib\/jrt-fs.jar`java.xml=/module=/true=/=/maven.pomderived=/true=/=/javadoc_location=/https:\/\/docs.oracle.com\/en\/java\/javase\/11\/docs\/api\/=/&lt;javax.xml.stream.events(Comment.class[Comment" modifiers="1537" timestamp="1646866209000"/>
+    <typeInfo handle="=00_setting/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.myweb.www.service{CommentService.java[CommentService" modifiers="513" timestamp="1658320128438"/>
+    <typeInfo handle="=test/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.test.www.service{BoardService.java[BoardService" modifiers="513" timestamp="1658233107437"/>
+    <typeInfo handle="=misson/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.misson.www.repository{BoardDAO.java[BoardDAO" modifiers="513" timestamp="1658885794008"/>
+    <typeInfo handle="=misson/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.misson.www.service{BoardService.java[BoardService" modifiers="513" timestamp="1658844605687"/>
+</typeInfoHistroy>

@@ -1,0 +1,17 @@
+
+7월 13, 2022 16:42:44.225 NEW SESSION
+7월 13, 2022 16:42:44.225 [13192:9728:0713/164244.220:ERROR:assistance_home_client.cc(23)] File path C:\Users\HPC\AppData\Local\Microsoft\Edge\User Data\Default
+7월 13, 2022 16:42:46.683 [13192:9728:0713/164246.683:ERROR:device_event_log_impl.cc(214)] [16:42:46.683] USB: usb_device_handle_win.cc:1048 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
+7월 13, 2022 16:42:46.684 [13192:9728:0713/164246.684:ERROR:device_event_log_impl.cc(214)] [16:42:46.684] USB: usb_device_handle_win.cc:1048 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
+7월 13, 2022 16:42:46.685 [13192:9728:0713/164246.685:ERROR:device_event_log_impl.cc(214)] [16:42:46.685] USB: usb_device_handle_win.cc:1048 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
+7월 13, 2022 16:42:46.970 [13192:9728:0713/164246.970:ERROR:fcfd_client_helper.cc(156)] FcfdClientHelper::OnFcfdResponse: Error: Bad Request
+7월 13, 2022 16:42:47.632 [13192:9728:0713/164247.632:ERROR:fcfd_client_helper.cc(156)] FcfdClientHelper::OnFcfdResponse: Error: Forbidden
+7월 13, 2022 16:42:49.863 [13192:9728:0713/164249.862:ERROR:fcfd_client_helper.cc(156)] FcfdClientHelper::OnFcfdResponse: Error: Forbidden
+7월 13, 2022 16:42:53.821 [13192:9728:0713/164253.821:ERROR:fcfd_client_helper.cc(156)] FcfdClientHelper::OnFcfdResponse: Error: Forbidden
+7월 13, 2022 16:43:01.443 [13192:9728:0713/164301.443:ERROR:fcfd_client_helper.cc(156)] FcfdClientHelper::OnFcfdResponse: Error: Forbidden
+7월 13, 2022 16:43:16.376 [13192:9728:0713/164316.376:ERROR:fcfd_client_helper.cc(156)] FcfdClientHelper::OnFcfdResponse: Error: Forbidden
+7월 13, 2022 16:43:44.452 [13192:14684:0713/164344.451:ERROR:util.cc(133)] Can't create base directory: C:\Program Files\Microsoft\EdgeUpdater
+7월 13, 2022 16:43:46.533 [13192:9728:0713/164346.533:ERROR:fcfd_client_helper.cc(156)] FcfdClientHelper::OnFcfdResponse: Error: Forbidden
+7월 13, 2022 16:44:42.219 [13192:9728:0713/164442.218:ERROR:fcfd_client_helper.cc(156)] FcfdClientHelper::OnFcfdResponse: Error: Forbidden
+7월 13, 2022 16:46:36.79 [13192:9728:0713/164636.078:ERROR:fcfd_client_helper.cc(156)] FcfdClientHelper::OnFcfdResponse: Error: Forbidden
+7월 13, 2022 16:58:39.110 [13192:9728:0713/165839.110:ERROR:fcfd_client_helper.cc(156)] FcfdClientHelper::OnFcfdResponse: Error: Forbidden

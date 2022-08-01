@@ -1,0 +1,15 @@
+package com.misson.www.service;
+
+import javax.inject.Inject;
+
+import org.springframework.stereotype.Service;
+
+import com.misson.www.repository.UserDAO;
+
+@Service
+public interface UserServiceImpl extends UserService {
+	
+	@Inject
+	private UserDAO udao;
+	
+}

@@ -1,0 +1,78 @@
+package com.misson.www.service;
+
+import java.util.List;
+
+import javax.inject.Inject;
+
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Isolation;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.misson.www.domain.BoardDTO;
+import com.misson.www.domain.BoardVO;
+import com.misson.www.domain.FileVO;
+import com.misson.www.domain.PagingVO;
+import com.misson.www.repository.BoardDAO;
+import com.misson.www.repository.FileDAO;
+
+
+@Service
+public class BoardServiceImpl implements BoardService {
+
+	@Inject
+	private BoardDAO bdao;
+	@Inject
+	private FileDAO fdao;
+
+	@Override
+	public int register(BoardDTO bdto) {
+		int isUp = bdao.insert(bdto.getBvo());
+
+		if (isUp > 0 && bdto.getFileList().size() > 0) {
+			long bno = bdao.select_last_bno();
+			for (FileVO fvo : bdto.getFileList()) {
+				fvo.setBno(bno);
+				isUp *= fdao.insertFile(fvo);
+			}
+		}
+
+		return isUp;
+	}
+
+	@Override
+	public List<BoardVO> getList(PagingVO pgvo) {
+		// TODO Auto-generated method stub
+		return bdao.select_list(pgvo);
+	}
+	@Transactional(isolation = Isolation.READ_COMMITTED)
+	@Override
+	public BoardDTO getDetail(long bno, int i) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public int modifiy(BoardDTO bdto) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int remove(long bno) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int getTotalCount(PagingVO pgvo) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int removeFile(String uuid) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+}
