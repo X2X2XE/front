@@ -1,0 +1,20 @@
+package com.misson.www.repository;
+
+import java.util.List;
+
+import org.apache.ibatis.annotations.Param;
+
+import com.misson.www.domain.BoardVO;
+import com.misson.www.domain.PagingVO;
+
+public interface BoardDAO {
+	int insert(BoardVO bvo);
+	List<BoardVO> select_list(PagingVO pgvo);
+	BoardVO select_one(long bno);
+	int update(BoardVO bvo);
+	int delete(long bno);
+	int select_total_count(PagingVO pgvo);
+	long select_last_bno();
+	int updateReadCount(@Param("bno") long bno, @Param("i") int i);
+	int updateCmtQty(@Param("bno")  long bno, @Param("i") int i);
+}
